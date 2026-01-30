@@ -1,0 +1,34 @@
+{
+	"level_1": {
+		"item_1": {"name": "item_1", "damage": 40, "texture": "uid://bty2ry2btayro"},
+		"level_2": {
+			"item_1": {"name": "item_1", "damage": 30, "texture": "uid://bty2ry2btayro"},
+			"item_2": {"name": "item_2", "damage": 35, "texture": "uid://bty2ry2btayro"},
+			"level_3a": {
+				"item_1": {"name": "item_1", "damage": 20, "texture": "uid://bty2ry2btayro"},
+				"item_2": {"name": "item_2", "damage": 25, "texture": "uid://bty2ry2btayro"},
+				"level_4a": {
+					"item_1": {"name": "item_1", "damage": 10, "texture": "uid://bty2ry2btayro"},
+					"item_2": {"name": "item_2", "damage": 15, "texture": "uid://bty2ry2btayro"}
+				},
+				"level_4b": {
+					"item_1": {"name": "item_1", "damage": 10, "texture": "uid://bty2ry2btayro"},
+					"item_2": {"name": "item_2", "damage": 15, "texture": "uid://bty2ry2btayro"}
+				}
+			},
+			"level_3b": {
+				"item_1": {"name": "item_1", "damage": 20, "texture": "uid://bty2ry2btayro"},
+				"item_2": {"name": "item_2", "damage": 25, "texture": "uid://bty2ry2btayro"},
+				"level_4a": {
+					"item_1": {"name": "item_1", "damage": 10, "texture": "uid://bty2ry2btayro"},
+					"item_2": {"name": "item_2", "damage": 15, "texture": "uid://bty2ry2btayro"}
+				},
+				"level_4b": {
+					"item_1": {"name": "item_1", "damage": 10, "texture": "uid://bty2ry2btayro"},
+					"item_2": {"name": "item_2", "damage": 15, "texture": "uid://bty2ry2btayro"}
+				}
+			}
+		}
+	}
+	
+}
