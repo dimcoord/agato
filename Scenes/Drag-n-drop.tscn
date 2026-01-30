@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d5nxoqaf30li"]
+
+[ext_resource type="Texture2D" uid="uid://bty2ry2btayro" path="res://icon.svg" id="1_5rn16"]
+[ext_resource type="Script" uid="uid://loditohstimx" path="res://Scripts/object.gd" id="2_vbi8b"]
+
+[node name="DragNDrop" type="Node2D"]
+
+[node name="Object" type="Sprite2D" parent="."]
+position = Vector2(561, 262.00003)
+scale = Vector2(0.47460935, 0.4453129)
+texture = ExtResource("1_5rn16")
+script = ExtResource("2_vbi8b")
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="Object"]
+modulate = Color(0.84608996, 0.84608996, 0.84608996, 0)
+offset_left = -63.523273
+offset_top = -66.50435
+offset_right = 64.953445
+offset_bottom = 63.721725
+
+[connection signal="button_down" from="Object/Button" to="Object" method="_on_button_button_down"]
+[connection signal="button_up" from="Object/Button" to="Object" method="_on_button_button_up"]
