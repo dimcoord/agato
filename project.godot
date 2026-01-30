@@ -14,6 +14,13 @@ config/name="Agato"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+FadeToBlack="*res://Transitions/fade_to_black.tscn"
+AudioFade="*res://Transitions/audio_fade.gd"
+UserSettings="*res://Scripts/user_settings.gd"
+UserData="*res://Scripts/user_data.gd"
+
 [display]
 
 window/size/viewport_width=1280

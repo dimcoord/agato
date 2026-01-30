@@ -1,0 +1,34 @@
+{
+	"level_1": {
+		"item_1": "uid://bty2ry2btayro",
+		"level_2": {
+			"item_1": "uid://bty2ry2btayro",
+			"item_2": "uid://bty2ry2btayro",
+			"level_3a": {
+				"item_1": "uid://bty2ry2btayro",
+				"item_2": "uid://bty2ry2btayro",
+				"level_4a": {
+					"item_1": "uid://bty2ry2btayro",
+					"item_2": "uid://bty2ry2btayro"
+				},
+				"level_4b": {
+					"item_1": "uid://bty2ry2btayro",
+					"item_2": "uid://bty2ry2btayro"
+				}
+			},
+			"level_3b": {
+				"item_1": "uid://bty2ry2btayro",
+				"item_2": "uid://bty2ry2btayro",
+				"level_4a": {
+					"item_1": "uid://bty2ry2btayro",
+					"item_2": "uid://bty2ry2btayro"
+				},
+				"level_4b": {
+					"item_1": "uid://bty2ry2btayro",
+					"item_2": "uid://bty2ry2btayro"
+				}
+			}
+		}
+	}
+	
+}
