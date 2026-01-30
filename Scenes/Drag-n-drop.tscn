@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://d5nxoqaf30li"]
 
-[ext_resource type="Texture2D" uid="uid://dpu6x67d6xikk" path="res://icon.svg" id="1_5rn16"]
-[ext_resource type="Script" uid="uid://dhycs85ymiuyk" path="res://object.gd" id="2_kcmcw"]
+[ext_resource type="Texture2D" uid="uid://bty2ry2btayro" path="res://icon.svg" id="1_5rn16"]
+[ext_resource type="Script" uid="uid://loditohstimx" path="res://Scripts/object.gd" id="2_vbi8b"]
 
 [node name="DragNDrop" type="Node2D"]
 
 [node name="Object" type="Sprite2D" parent="."]
-position = Vector2(503.375, 296.50003)
+position = Vector2(561, 262.00003)
 scale = Vector2(0.47460935, 0.4453129)
 texture = ExtResource("1_5rn16")
-script = ExtResource("2_kcmcw")
+script = ExtResource("2_vbi8b")
 metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="Object"]
