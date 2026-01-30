@@ -39,9 +39,13 @@ func extract_uuids_recursive(data):
 	if data is Dictionary:
 		for key in data.keys():
 			var value = data[key]
-			if value is String and value.begins_with("uid://"):
-				texture_uuids.append(value)
-			else:
+			# Check if this is an item object with a texture property
+			if value is Dictionary and "texture" in value:
+				var texture_uuid = value["texture"]
+				if texture_uuid is String and texture_uuid.begins_with("uid://"):
+					texture_uuids.append(texture_uuid)
+			# Recursively check nested dictionaries
+			if value is Dictionary:
 				extract_uuids_recursive(value)
 
 func _process(delta):
