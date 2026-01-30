@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bogw5i68l2ujm"]
+
+[ext_resource type="PackedScene" uid="uid://b1xwk5jhrgjkd" path="res://Scenes/Monodialog/monodialog_ui.tscn" id="1_akrd8"]
+[ext_resource type="Script" uid="uid://drmgrqb0bhj8u" path="res://Scripts/Monodialog/monodialog_manager.gd" id="1_ie816"]
+
+[node name="MonodialogManager" type="Node2D"]
+script = ExtResource("1_ie816")
+
+[node name="MonodialogUI" parent="." instance=ExtResource("1_akrd8")]
+layer = 10

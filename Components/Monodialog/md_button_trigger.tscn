@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://n54evfpbhe28"]
+
+[ext_resource type="Script" uid="uid://0xqsl2a2dbb1" path="res://Scripts/Monodialog/md_button_trigger.gd" id="1_gntqh"]
+[ext_resource type="PackedScene" uid="uid://bogw5i68l2ujm" path="res://Scenes/Monodialog/monodialog_manager.tscn" id="2_suby2"]
+
+[node name="MonodialogTrigger" type="TextureButton"]
+script = ExtResource("1_gntqh")
+
+[node name="MonodialogManager" parent="." instance=ExtResource("2_suby2")]
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

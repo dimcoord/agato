@@ -1,0 +1,548 @@
+{
+	"mc": {
+		"character_picture": "uid://bp2vn7aimfq8m",
+		"character_name": "John Cijambe",
+		"character_voice": "uid://b54l5gme8fuaq",
+		"tree": [
+			{
+				"branch_id": "0",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Aku di mana bjir",
+					"options": {
+						"Next": "page_1"
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Oh aku di backroom loh ya",
+					"options": {
+						"Next": "page_2"
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "Kabur ah",
+					"options": {
+						"Kabur loh ya": "end"
+						}
+					}
+				]
+			},
+			{
+				"branch_id": "1",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Tekan tombol Godot?",
+					"options": {
+						"Tekan tombol": "in_progress",
+						"Say goodbye": "exit"
+						}
+					},
+					{
+					"state": "in_progress",
+					"text": "Yoga nigga",
+					"options": {
+						"Say goodbye": "exit"
+						}
+					}
+				]
+			},
+			{
+				"branch_id": "40",
+				"type": "revealing_clue",
+				"monodialogs": [
+					{
+						"state": "start",
+						"text": "Tunggu sebentar... Noda ini bukan sekadar kotoran.",
+						"options": {
+							"Lanjut": "2"
+						}
+					},
+					{
+						"state": "2",
+						"text": "Ini bekas lipstik, warnanya persis dengan yang ada di tisu tempat sampah dapur.",
+						"options": {
+							"Lanjut": "3"
+						}
+					},
+					{
+						"state": "3",
+						"text": "Dan juga tanda tangan Matt di sini... tarikannya terlalu kaku.",
+						"options": {
+							"Lanjut": "4"
+						}
+					},
+					{
+						"state": "4",
+						"text": "Ini jelas hasil jiplakan! Surat ini dibuat tepat satu hari sebelum pembunuhan.",
+						"options": {
+							"Selesai": "exit"
+						}
+					}
+				]
+			},
+
+			{
+				"branch_id": "30",
+				"type": "soft_lock_tangga",
+				"monodialogs": [
+					{
+						"state": "start",
+						"text": "Aku harus memeriksa suara tadi..",
+						"options": {
+							"Selesai" : "exit"
+						}
+					}
+				]
+			},
+			{
+					"branch_id": "50",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Ini racun hama. Dan Matt tidak memakai lipstik.",
+								"options" : {
+									"Lanjut": "1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Wanita yang ikut makan malam jam 8 itu menjebaknya.",
+								"options" : {
+									"Selesai" : "exit"
+								}
+							}
+						]
+			},
+				{
+					"branch_id": "60",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Dosis racun ini... tidak cukup kuat",
+								"options" : {
+									"Lanjut": "1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "untuk membunuh orang dewasa seketika.",
+								"options" : {
+									"Lanjut":"2"
+								}
+							},
+							{
+								"state": "2",
+								"text" :  "Ini hanya melumpuhkan sistem saraf.",
+								"options" : {
+									"Lanjut":"3"
+								}
+							},
+							{
+								"state": "3",
+								"text" :  "Jika mereka hanya lumpuh.",
+								"options" : {
+									"Lanjut":"4"
+								}
+							},
+								{
+								"state": "4",
+								"text" :  "lalu apa yang membunuh mereka",
+								"options" : {
+									"Selesai":"exit"
+								}
+							}
+						]
+				},
+			{
+				"branch_id": "70",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Alat yang berguna.... sebaiknya disimpan terlebih dahulu",
+								"options" : {
+									"Selesai" : "exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "80",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Benar saja, tanda tangan surat ini terlihat janggal..",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Matt tidak mungkin menurunkannya kepada jilly..",
+								"options" : {
+										"Selesai" : "exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "90",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Kebangkrutan total... Saat terdesak hutang,",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "orang bisa jadi nekat.",
+								"options" : {
+										"Lanjut":"2"
+								}
+							},
+							{
+								"state": "2",
+								"text" :  "Ini motif yang sempurna.",
+								"options" : {
+										"Selesai" : "exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "100",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Disembunyikan dengan sengaja...",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Kunci ini pasti menjaga rahasia besar",
+								"options" : {
+										"Selesai" : "exit"
+								}
+							}
+							
+					]
+			},
+			{
+				"branch_id": "110",
+					"type" : "pintu_terkunci",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Terkunci...",
+								"options" : {
+									"Selesai" : "exit"
+								}
+							}
+							
+					]
+			},
+			{
+				"branch_id": "115",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Tiket kereta... Tanggal 16?",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Itu 3 hari setelah kejadian.",
+								"options" : {
+									"Lanjut":"2"
+								}
+							},
+							{
+								"state": "2",
+								"text" :  "Apa yang dia tunggu?",
+								"options" : {
+									"Selesai":"exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "120",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Obat penenang... Wajar untuk orang sesukses dia..",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Tapi, apa hanya sekadar untuk stres?",
+								"options" : {
+									"Selesai":"exit"
+								}
+							}
+							
+					]
+			},
+			{
+				"branch_id": "125",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+							"state": "start",
+							"text": "Matt kehilangan akal sehatnya pada malam 13 Oktober.",
+							"options": {
+								"Lanjut": "1"
+							}
+							},
+							{
+								"state": "1",
+								"text": "Jika makan malam dimulai jam 8, maka kekacauan ini terjadi hanya dalam waktu 15 menit.",
+								"options": {
+									"Lanjut": "3"
+								}
+							},
+							{
+								"state": "3",
+								"text": "Sangat cepat. Sesuatu atau seseorang memutus waktu mereka dengan paksa.",
+								"options": {
+									"Selesai": "exit"
+								}
+							}
+					]
+			},
+			{
+					"branch_id": "130",
+					"type": "pickup_item",
+					"monodialogs": [
+						{
+							"state": "start",
+							"text": "Jam dinding ini pecah... jarumnya berhenti tepat di pukul 08.15 malam.",
+							"options": {
+								"Lanjut": "2"
+							}
+						},
+						{
+							"state": "2",
+							"text": "Jika makan malam dimulai jam 8, maka kekacauan ini terjadi hanya dalam waktu 15 menit.",
+							"options": {
+								"Lanjut": "3"
+							}
+						},
+						{
+							"state": "3",
+							"text": "Sangat cepat. Sesuatu atau seseorang memutus waktu mereka dengan paksa.",
+							"options": {
+								"Selesai": "exit"
+							}
+						}
+					]
+				},
+				{
+					"branch_id": "140",
+					"type": "pickup_item",
+					"monodialogs": [
+						{
+							"state": "start",
+							"text": "Tisu bekas di tempat sampah... ada noda lipstik merah menyala di sini.",
+							"options": {
+								"Lanjut": "2"
+							}
+						},
+						{
+							"state": "2",
+							"text": "Tunggu... Matt tidak mungkin memakai lipstik. Lily pun lebih suka warna yang pucat.",
+							"options": {
+								"Lanjut": "3"
+							}
+						},
+						{
+							"state": "3",
+							"text": "Artinya ada wanita lain yang ikut makan malam itu. Seseorang yang ingin tampil mencolok.",
+							"options": {
+								"Selesai": "exit"
+							}
+						}
+					]
+				},
+				{
+					"branch_id": "150",
+					"type": "clue_surat_matt",
+					"monodialogs": [
+						{
+							"state": "start",
+							"text": "Matt menolak meminjamkan uang.",
+							"options": {
+								"Lanjut": "2"
+							}
+						},
+						{
+							"state": "2",
+							"text": "Dia menyebut Jilly sangat serakah.",
+							"options": {
+								"Lanjut": "3"
+							}
+						},
+						{
+							"state": "3",
+							"text": "Bagi Jilly, surat ini adalah vonis.",
+							"options": {
+								"Lanjut": "4"
+							}
+						},
+						{
+							"state": "4",
+							"text": "Sakit hati dan bangkrut... kombinasi mematikan.",
+							"options": {
+								"Selesai": "exit"
+							}
+						}
+					]
+				}
+			
+			
+			
+
+
+		]
+	},
+	"eddie": {
+		"character_picture": "uid://dvsn3f13fpb3b",
+		"character_name": "Eddie",
+		"character_voice": "uid://d154jkl08pp7r",
+		"tree": [
+			{
+				"branch_id": "0",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Aku di mana bjir",
+					"options": {
+						"Next": "page_1"
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Oh aku di backroom loh ya",
+					"options": {
+						"Next": "page_2"
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "Kabur ah",
+					"options": {
+						"Kabur loh ya": "exit"
+						}
+					}
+				]
+			}
+		]
+	},
+	"eddie_2": {
+		"character_picture": "uid://bpl2i40evqbec",
+		"character_name": "Eddie",
+		"character_voice": "uid://betjpmy4agsow",
+		"tree": [
+			{
+				"branch_id": "0",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Aku di mana bjir",
+					"options": {
+						"Next": "page_1"
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Oh aku di backroom loh ya",
+					"options": {
+						"Next": "page_2"
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "Kabur ah",
+					"options": {
+						"Kabur loh ya": "exit"
+						}
+					}
+				]
+			}
+		]
+	},
+	"jilly": {
+		"character_picture": "uid://by1tbtwahxg3q",
+		"character_name": "Jilly",
+		"character_voice": "uid://cc8fbsmcy4ofo",
+		"tree": [
+			{
+				"branch_id": "0",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "...?",
+					"options": {
+						"Siapa itu?": "page_1"
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Siapa kamu?",
+					"options": {
+						"...": "page_2"
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "...",
+					"options": {
+						"Sejak kapan kamu berada di sini?": "page_3"
+						}
+					},
+					{
+					"state": "page_3",
+					"text": "...1986, 1987...",
+					"options": {
+						"Mengapa kamu mengunci dirimu sendiri di sini?": "page_4"
+						}
+					},
+					{
+					"state": "page_4",
+					"text": "...kenapa kamu kemari?",
+					"options": {
+						"Apakah dirimulah yang bernama Jilly?": "page_5"
+						}
+					},
+					{
+					"state": "page_5",
+					"text": "Tunggu! Dengarkan kisahku dulu.",
+					"options": {
+						"<Percaya Jilly>": "ge",
+						"<Jauhi Jilly>": "be"
+						}
+					},
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://en06v6ovc2rl"]
+
+[ext_resource type="Script" uid="uid://5e0nghks0kik" path="res://Transitions/fade_to_black.gd" id="1_plv7l"]
+
+[node name="FadeToBlack" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+follow_viewport_enabled = true
+script = ExtResource("1_plv7l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1783.0
+offset_top = -2220.0
+offset_right = 1937.0
+offset_bottom = 2060.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

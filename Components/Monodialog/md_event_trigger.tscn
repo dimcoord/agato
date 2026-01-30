@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfgiutyjmm0ra"]
+
+[ext_resource type="Script" uid="uid://ces3mnbd8fmgq" path="res://Scripts/Monodialog/md_event_trigger.gd" id="1_7iomp"]
+[ext_resource type="PackedScene" uid="uid://bogw5i68l2ujm" path="res://Scenes/Monodialog/monodialog_manager.tscn" id="2_xrc5k"]
+
+[node name="MonodialogEventTrigger" type="Area2D"]
+script = ExtResource("1_7iomp")
+
+[node name="MonodialogManager" parent="." instance=ExtResource("2_xrc5k")]
