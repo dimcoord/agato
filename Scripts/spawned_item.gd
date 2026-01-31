@@ -11,21 +11,23 @@ func _ready():
 	parent_main = get_parent().get_parent()
 	# Don't block mouse events by default - let drops pass through to Attack node
 	mouse_filter = Control.MOUSE_FILTER_PASS
+	# Add to group for instance ID lookups
+	add_to_group("spawned_items")
 
 func _on_gui_input(event: InputEvent):
 	if event is InputEventMouseButton:
 		if event.pressed and can_drag:
 			dragging = true
 			drag_offset = get_global_mouse_position() - global_position
-			# Enable mouse blocking during drag
-			mouse_filter = Control.MOUSE_FILTER_STOP
+			# Set to IGNORE so items underneath can receive drop events
+			mouse_filter = Control.MOUSE_FILTER_IGNORE
 			# Show attack prompt
 			parent_main.get_node("Control/AttackPrompt").visible = true
 		elif dragging:
 			dragging = false
 			can_drag = false
 			drag_cooldown = 0.2  # 200ms cooldown before allowing drag again
-			# Disable mouse blocking after drop so Attack node can receive drops
+			# Return to PASS so this item can receive future drag starts
 			mouse_filter = Control.MOUSE_FILTER_PASS
 			modulate = Color.WHITE  # Restore normal color when done dragging
 			# Hide attack prompt
@@ -37,8 +39,16 @@ func _process(delta):
 		global_position = get_global_mouse_position() - drag_offset
 		modulate = Color.WHITE * 0.8  # Slightly dim while dragging
 		
+		# Check for 'e' key to place item
+		if Input.is_action_just_pressed("ui_focus_next"):  # 'e' key
+			dragging = false
+			can_drag = false
+			drag_cooldown = 0.2
+			mouse_filter = Control.MOUSE_FILTER_PASS
+			modulate = Color.WHITE
+			parent_main.get_node("Control/AttackPrompt").visible = false
 		# Check for spacebar to attack with item
-		if Input.is_action_just_pressed("ui_accept"):  # spacebar
+		elif Input.is_action_just_pressed("ui_accept"):  # spacebar
 			if has_meta("item_data"):
 				var item_data = get_meta("item_data")
 				print("Attacking with held item: ", item_data.get("name", "Item"))
@@ -71,55 +81,62 @@ func _get_drag_data(at_position: Vector2):
 		preview.add_theme_font_size_override("font_size", 14)
 		set_drag_preview(preview)
 		
-		# Include reference to the source node
+		# Include reference to the source node using instance ID (more reliable than node reference)
 		var drag_data = item_data.duplicate()
-		drag_data["source_node"] = self
+		drag_data["source_instance_id"] = get_instance_id()
 		return drag_data
 	return null
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	print("_can_drop_data called, data type: ", typeof(data), " has source_node: ", data is Dictionary and "source_node" in data)
+	# Must have item data to accept drops
+	if not has_meta("item_data"):
+		return false
 	
-	# Only accept drops from OTHER spawned items (for mixing)
-	if data is Dictionary and "source_node" in data:
-		var source = data["source_node"]
-		print("  source valid: ", is_instance_valid(source), " is TextureRect: ", source is TextureRect if is_instance_valid(source) else "N/A")
-		
-		# Check if source is still valid before using it
-		if is_instance_valid(source) and source != self and source is TextureRect and source.has_meta("item_data"):
-			# Also check if items are from the same level
-			if has_meta("item_data"):
-				var this_path = get_meta("item_data").get("path", "")
-				var dropped_path = data.get("path", "")
-				
-				var this_parts = this_path.split("/")
-				var dropped_parts = dropped_path.split("/")
-				
-				# Get parent level paths (all parts except the last item name)
-				var this_parent = "/".join(this_parts.slice(0, -1))
-				var dropped_parent = "/".join(dropped_parts.slice(0, -1))
-				
-				print("DEBUG _can_drop_data:")
-				print("  This item: ", get_meta("item_data").get("name", "?"), " parent: ", this_parent)
-				print("  Dropped item: ", data.get("name", "?"), " parent: ", dropped_parent)
-				print("  Match: ", this_parent == dropped_parent)
-				
-				# Only return true if items are from the same level
-				if this_parent == dropped_parent:
-					return true
-	# Don't block other drops - let them pass to parent nodes like Attack
-	print("_can_drop_data returning FALSE")
-	return false
+	# Must be dropping from another item
+	if not (data is Dictionary and "source_instance_id" in data):
+		return false
+	
+	var source_id = data["source_instance_id"]
+	var my_id = get_instance_id()
+	
+	# Source must not be self
+	if source_id == my_id:
+		return false
+	
+	# Both must be from the same level
+	var this_path = get_meta("item_data").get("path", "")
+	var this_parts = this_path.split("/")
+	var this_parent = "/".join(this_parts.slice(0, -1))
+	
+	# Get source node from tree to verify it still exists and get its path
+	var source = get_tree().get_nodes_in_group("spawned_items").filter(func(node): return node.get_instance_id() == source_id)
+	
+	if source.is_empty():
+		return false
+	
+	source = source[0]
+	var source_path = source.get_meta("item_data").get("path", "")
+	var source_parts = source_path.split("/")
+	var source_parent = "/".join(source_parts.slice(0, -1))
+	
+	var result = this_parent == source_parent
+	return result
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	# Only handle drops from other spawned items (crafting)
-	if data is Dictionary and "source_node" in data:
-		var source = data["source_node"]
+	if data is Dictionary and "source_instance_id" in data:
+		var source_id = data["source_instance_id"]
 		
 		# Don't mix item with itself
-		if source == self:
+		if source_id == get_instance_id():
 			return
 		
+		# Find the source node by instance ID
+		var source_nodes = get_tree().get_nodes_in_group("spawned_items").filter(func(node): return node.get_instance_id() == source_id)
+		if source_nodes.is_empty():
+			return
+		
+		var source = source_nodes[0]
 		# Only craft if source is another spawned item
 		if source is TextureRect and source.has_meta("item_data"):
 			if has_meta("item_data"):

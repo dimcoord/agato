@@ -14,6 +14,9 @@ var items_data = []
 var level_5_items = []
 var current_item_index = 0
 var spawned_buttons_count = 0
+var crack_spawn_timer = 0.0
+var crack_spawn_interval = 3.0  # Spawn a crack every 3 seconds
+var max_cracks = 5
 
 
 func _ready() -> void:
@@ -89,6 +92,23 @@ func _process(delta):
 			spawn_item_button()
 			current_item_index = (current_item_index + 1) % level_5_items.size()
 		time_elapsed = 0.0
+	
+	# Handle crack spawning
+	crack_spawn_timer += delta
+	if crack_spawn_timer >= crack_spawn_interval:
+		# Count active cracks
+		var current_crack_count = 0
+		for child in control.get_children():
+			if child.is_in_group("cracks"):
+				current_crack_count += 1
+		
+		print("Crack count: ", current_crack_count, "/", max_cracks)
+		
+		# Spawn crack if under max
+		if current_crack_count < max_cracks:
+			spawn_crack()
+		
+		crack_spawn_timer = 0.0
 
 func spawn_item_button():
 	var item_data = level_5_items[current_item_index]
@@ -194,3 +214,43 @@ func attack_with_item(item_data: Dictionary):
 	distance_value += (10 * damage / UserData.difficulty_scaling_factor)
 	distance.text = str(int(distance_value)) + " m"
 	print("Attacked with ", item_data.get("name", "Item"), "! Damage: ", damage)
+
+func spawn_crack():
+	# Create a TextureRect for the crack
+	var crack = TextureRect.new()
+	# Randomly choose between the two crack textures
+	var crack_textures = ["uid://f61o7cgk3v2b", "uid://rqcelx0drqag"]
+	crack.texture = load(crack_textures[rng.randi() % crack_textures.size()])
+	crack.scale = Vector2(0.8, 0.8)
+	crack.custom_minimum_size = Vector2(100, 100)
+	crack.mouse_filter = Control.MOUSE_FILTER_STOP
+	
+	# Position along circumference around center
+	var center_x = 540
+	var center_y = 300
+	var radius = 200  # Distance from center
+	var radius_variance = 30  # Randomness in the radius
+	
+	# Random angle around the circle (0 to 2π)
+	var angle = rng.randf() * TAU
+	
+	# Random radius with variance
+	var actual_radius = radius + rng.randf_range(-radius_variance, radius_variance)
+	
+	# Convert polar to cartesian coordinates
+	var position_x = center_x + actual_radius * cos(angle)
+	var position_y = center_y + actual_radius * sin(angle)
+	
+	crack.position = Vector2(position_x, position_y)
+	
+	print("Spawning crack at position: ", crack.position)
+	
+	# Add crack script
+	var script = load("res://Scripts/crack.gd")
+	crack.set_script(script)
+	
+	# Add to group for tracking
+	crack.add_to_group("cracks")
+	
+	# Add to scene root, not to control (so it appears behind items)
+	add_child(crack)

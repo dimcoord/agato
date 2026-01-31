@@ -11,13 +11,6 @@ func toggle_pause() -> void:
 	visible = not visible
 	get_tree().paused = not get_tree().paused
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		toggle_pause()
-		if $Button.visible:
-			$Button.visible = false
-	
-
 func _on_button_2_pressed() -> void:
 	get_tree().reload_current_scene()
 

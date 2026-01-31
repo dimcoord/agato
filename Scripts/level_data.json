@@ -3,26 +3,36 @@
 		"Yellow":"#F9D361",
 		"Orange":"#DF721C",
 		"Brown":"#70490A",
-		"softlock": "level_4"
+		"softlock": "level_4",
+		"texture": "uid://d4huy0d3p2qwh",
+		"texture_broken": "uid://ybvtj45qpydd"
 	},
 	"Level_2":{
 		"Purple1":"#BE91E5",
 		"Purple2":"#E882E1",
 		"Purple3":"#9451E5",
-		"softlock": "level_3"
+		"softlock": "level_3",
+		"texture": "uid://cmf71tqptquft",
+		"texture_broken": "uid://4r3j6jeimje2"
 	},
 	"Level_3":{
 		"White":"#FFFFFF",
 		"Blue":"#A887E3",
 		"Navy Blue":"#364160",
-		"softlock": "level_2"
+		"softlock": "level_2",
+		"texture": "uid://boljax888w8xx",
+		"texture_broken": "uid://dy3kum8aeuix2"
 	},"Level_4":{
 		"White":"#FFFFFF",
 		"Light Green":"#D6C779",
-		"Dark Green":"#043E06"
+		"Dark Green":"#043E06",
+		"texture": "uid://brmnk0hcrj5vw",
+		"texture_broken": "uid://bvm7s545vjhsw"
 	},"Level_5":{
 		"White":"#FFFFFF",
 		"Dark Green1":"#6E7054",
-		"Dark Green2":"#444535"
+		"Dark Green2":"#444535",
+		"texture": "uid://dmyeqowru1axy",
+		"texture_broken": "uid://cu4oretyqne1u"
 	}
 }
