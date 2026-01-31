@@ -39,14 +39,29 @@ func _process(delta):
 		global_position = get_global_mouse_position() - drag_offset
 		modulate = Color.WHITE * 0.8  # Slightly dim while dragging
 		
-		# Check for 'e' key to place item
+		# Check for 'e' key to stack item into jar
 		if Input.is_action_just_pressed("ui_focus_next"):  # 'e' key
+			if has_meta("item_data"):
+				var item_data = get_meta("item_data")
+				print("Stacking item into jar: ", item_data.get("name", "Item"))
+				if parent_main and parent_main.has_method("stack_item_in_jar"):
+					parent_main.stack_item_in_jar(item_data, global_position)
+				dragging = false
+				can_drag = false
+				drag_cooldown = 0.2
+				mouse_filter = Control.MOUSE_FILTER_PASS
+				modulate = Color.WHITE
+				parent_main.get_node("Control/AttackPrompt").visible = false
+				queue_free()
+		# Check for 'r' key to place item at mouse position
+		elif Input.is_action_just_pressed("place_item"):  # 'r' key
 			dragging = false
 			can_drag = false
 			drag_cooldown = 0.2
 			mouse_filter = Control.MOUSE_FILTER_PASS
 			modulate = Color.WHITE
 			parent_main.get_node("Control/AttackPrompt").visible = false
+			# Item stays at current position (where mouse is)
 		# Check for spacebar to attack with item
 		elif Input.is_action_just_pressed("ui_accept"):  # spacebar
 			if has_meta("item_data"):

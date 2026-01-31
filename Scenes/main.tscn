@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ce05ftm7ab8tv"]
+[gd_scene load_steps=44 format=3 uid="uid://ce05ftm7ab8tv"]
 
 [ext_resource type="PackedScene" uid="uid://c60prqmdo4yhr" path="res://Scenes/Levels/level_1.tscn" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://debhgryg6hi8v" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bv7dtnqgjfaqk" path="res://Scripts/attack_node.gd" id="4_b3802"]
 [ext_resource type="Script" uid="uid://cwvihduorxp2h" path="res://Scripts/crack.gd" id="4_gt3je"]
 [ext_resource type="Script" uid="uid://clpmlsfwcd6dh" path="res://Scripts/gatto.gd" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://bfhooijgtbige" path="res://Scripts/jar_detector.gd" id="5_jar"]
 [ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="5_pdsj5"]
 [ext_resource type="Texture2D" uid="uid://ct5k2t1fobaoi" path="res://Assets/Sprites/gatto facial mask0.png" id="7_k12tt"]
 [ext_resource type="PackedScene" uid="uid://b7x43dhlrjpam" path="res://Components/game_over.tscn" id="8_344ge"]
@@ -118,7 +119,7 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_344ge"]
 font = ExtResource("3_6bp64")
-font_size = 41
+font_size = 30
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 30
@@ -140,12 +141,18 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 30
 shadow_color = Color(0, 0, 0, 0.105882354)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jar"]
+size = Vector2(269, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kltya"]
+size = Vector2(26.5, 324.5)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hibaj"]
 bg_color = Color(1, 0.21176471, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hibaj"]
 font = ExtResource("3_6bp64")
-font_size = 33
+font_size = 30
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 30
@@ -202,7 +209,7 @@ flip_h = true
 script = ExtResource("4_jjvhh")
 
 [node name="Predaturr" type="AnimatedSprite2D" parent="."]
-position = Vector2(1184.9999, 99.812515)
+position = Vector2(1173, 87.00001)
 scale = Vector2(1.9712497, 2.03625)
 sprite_frames = SubResource("SpriteFrames_6iyac")
 flip_h = true
@@ -241,10 +248,10 @@ color = Color(0, 0, 0, 0.34901962)
 
 [node name="Level" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 23.0
-offset_right = 283.0
-offset_bottom = 86.0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 200.0
+offset_bottom = 69.0
 text = "Level:"
 label_settings = SubResource("LabelSettings_344ge")
 horizontal_alignment = 1
@@ -253,21 +260,21 @@ autowrap_mode = 1
 
 [node name="Value" type="Label" parent="Control/Level"]
 layout_mode = 0
-offset_left = 240.0
-offset_right = 312.0
-offset_bottom = 63.0
+offset_left = 174.0
+offset_top = 1.0
+offset_right = 246.0
+offset_bottom = 64.0
 text = "1"
 label_settings = SubResource("LabelSettings_344ge")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="Distance" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 817.0
-offset_top = 28.0
-offset_right = 1063.0
-offset_bottom = 99.0
+offset_left = 1058.0
+offset_top = 197.0
+offset_right = 1304.0
+offset_bottom = 268.0
 text = "Distance to Gatto:"
 label_settings = SubResource("LabelSettings_6bp64")
 horizontal_alignment = 1
@@ -276,12 +283,13 @@ autowrap_mode = 3
 
 [node name="Value" type="Label" parent="Control/Distance"]
 layout_mode = 0
-offset_top = 80.0
-offset_right = 246.0
-offset_bottom = 143.0
+offset_left = -30.0
+offset_top = 77.0
+offset_right = 216.0
+offset_bottom = 140.0
 text = "2400 m"
 label_settings = SubResource("LabelSettings_344ge")
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 1
 
@@ -293,18 +301,48 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -344.5
-offset_top = 157.0
-offset_right = 344.5
-offset_bottom = 244.0
+offset_left = -344.0
+offset_top = -332.0
+offset_right = 345.0
+offset_bottom = -186.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press <E> to PLACE
+text = "Press <E> to DROP
+Press <R> to PLACE
 Press <SPACE> to ATTACK!!"
 label_settings = SubResource("LabelSettings_b3802")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Jar" type="StaticBody2D" parent="Control"]
+position = Vector2(950, 250)
+
+[node name="JarVisual" type="ColorRect" parent="Control/Jar"]
+offset_left = -423.0
+offset_top = 4.0
+offset_right = -154.0
+offset_bottom = 402.0
+color = Color(0.57986313, 0.6328455, 0.65527874, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Jar"]
+position = Vector2(-288.5, 365)
+shape = SubResource("RectangleShape2D_jar")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/Jar"]
+position = Vector2(-410, 165.75)
+shape = SubResource("RectangleShape2D_kltya")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Control/Jar"]
+position = Vector2(-167.25, 166)
+shape = SubResource("RectangleShape2D_kltya")
+
+[node name="JarDetector" type="Area2D" parent="Control/Jar"]
+position = Vector2(-288.5, 200)
+script = ExtResource("5_jar")
+
+[node name="DetectorCollisionShape" type="CollisionShape2D" parent="Control/Jar/JarDetector"]
+shape = SubResource("RectangleShape2D_jar")
 
 [node name="Attack" type="TextureRect" parent="Control"]
 visible = false
@@ -340,18 +378,17 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_pdsj5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hibaj")
-value = 100.0
 
 [node name="Label" type="Label" parent="Control/FloorHP"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -307.0
+offset_left = -434.0
 offset_top = -47.0
 offset_bottom = 4.0
 grow_horizontal = 0
-text = "Floor HP:"
+text = "Total Weight:"
 label_settings = SubResource("LabelSettings_hibaj")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -366,7 +403,7 @@ sprite_frames = SubResource("SpriteFrames_8cuat")
 speed_scale = 2.0
 
 [node name="Timer" type="Timer" parent="Transition"]
-wait_time = 0.9
+wait_time = 0.5
 
 [node name="GameOver" parent="." instance=ExtResource("8_344ge")]
 visible = false

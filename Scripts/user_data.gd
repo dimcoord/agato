@@ -2,6 +2,7 @@ extends Node
 
 
 var difficulty_scaling_factor = 1.0
+var current_level = 1
 var high_score = 0
 
 const SETTINGS_PATH := "user://save.cfg"
@@ -16,6 +17,7 @@ func save_settings():
 	var cfg := ConfigFile.new()
 
 	cfg.set_value("gameplay", "difficulty_scaling_factor", difficulty_scaling_factor)
+	cfg.set_value("gameplay", "current_level", current_level)
 	cfg.set_value("gameplay", "high_score", high_score)
 
 	cfg.save(SETTINGS_PATH)
@@ -28,12 +30,19 @@ func load_settings():
 		print("No settings file found, using defaults")
 		return
 
+	current_level = cfg.get_value("gameplay", "current_level", current_level)
 	difficulty_scaling_factor = cfg.get_value("gameplay", "difficulty_scaling_factor", difficulty_scaling_factor)
 	high_score = cfg.get_value("gameplay", "high_score", high_score)
 
 func set_difficulty(factor: float):
 	difficulty_scaling_factor = factor
 	save_settings()
+
+func increment_level():
+	current_level += 1
+	difficulty_scaling_factor += 0.1
+	save_settings()
+	print("Level advanced to: ", current_level, " with difficulty scaling: ", difficulty_scaling_factor)
 
 func get_scaled_value(base_value: float) -> float:
 	return base_value * difficulty_scaling_factor

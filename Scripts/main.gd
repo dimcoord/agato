@@ -1,12 +1,14 @@
 extends Node2D
 
 @export var json_path = "res://Scripts/alt_item_tree.json"
+@export var level_data_path = "res://Scripts/level_data.json"
 @export var base_distance_decrease_rate = 10.0  # Base amount to decrease per second
 
-@onready var spawn_speed = 1.0 / UserData.difficulty_scaling_factor  # Time interval between spawns
-@onready var distance_value: int = 5000 / UserData.difficulty_scaling_factor
+@onready var spawn_speed = 1.0 / LevelManager.difficulty_scaling  # Time interval between spawns
+@onready var distance_value: int = 5000 / LevelManager.difficulty_scaling
 @onready var distance = $Control/Distance/Value
 @onready var control = $Control
+@onready var current_level = $Control/Level/Value
 
 var rng = RandomNumberGenerator.new()
 var time_elapsed = 0.0
@@ -17,13 +19,58 @@ var spawned_buttons_count = 0
 var crack_spawn_timer = 0.0
 var crack_spawn_interval = 3.0  # Spawn a crack every 3 seconds
 var max_cracks = 5
+var level_data = {}
 
 
 func _ready() -> void:
+	# Load level data
+	load_level_data()
+	
+	# Update UI to show current level from LevelManager
+	current_level.text = str(LevelManager.current_level)
 	distance.text = str(distance_value) + " m"
-	UserData.set_difficulty(1.0)
+	
+	# Set background color from level data
+	set_background_color()
+	
 	load_items_data()
 
+func load_level_data():
+	var file = FileAccess.open(level_data_path, FileAccess.READ)
+	if file:
+		var json = JSON.new()
+		var error = json.parse(file.get_as_text())
+		if error == OK:
+			level_data = json.data
+			print("Level data loaded successfully")
+
+func set_background_color():
+	# Get the level key based on LevelManager's current level
+	var level_key = "Level_" + str(LevelManager.current_level)
+	print("Looking for level key: ", level_key)
+	print("Level data keys: ", level_data.keys())
+	print("Has ColorRect node: ", has_node("Control/ColorRect"))
+	
+	if level_key in level_data:
+		var level_info = level_data[level_key]
+		print("Found level info: ", level_info.keys())
+		# Get a random color from the level's available colors
+		var color_keys = []
+		for key in level_info.keys():
+			if key != "softlock" and key != "texture" and key != "texture_broken":
+				color_keys.append(key)
+		
+		print("Available color keys: ", color_keys)
+		
+		if color_keys.size() > 0 and has_node("Control/ColorRect"):
+			var random_color_key = color_keys[rng.randi() % color_keys.size()]
+			var color_hex = level_info[random_color_key]
+			$Control/ColorRect.color = Color.html(color_hex)
+			print("Background color set to ", random_color_key, " (", color_hex, ")")
+		else:
+			print("ERROR: No color keys found or ColorRect node missing")
+	else:
+		print("ERROR: Level key not found in level_data")
 
 func load_items_data():
 	items_data.clear()
@@ -73,7 +120,7 @@ func extract_items_recursive(data, path: String):
 				extract_items_recursive(value, current_path)
 
 func _process(delta):
-	var decrease_amount = base_distance_decrease_rate * delta * UserData.difficulty_scaling_factor
+	var decrease_amount = base_distance_decrease_rate * delta * LevelManager.difficulty_scaling
 	distance_value -= decrease_amount
 	distance.text = str(int(distance_value)) + " m"
 	if distance_value <= 0: $GameOver.toggle_pause()
@@ -88,7 +135,7 @@ func _process(delta):
 				current_item_count += 1
 		
 		# Spawn items until we have 10
-		if level_5_items.size() > 0 and current_item_count < 10:
+		if level_5_items.size() > 0 and current_item_count < 3:
 			spawn_item_button()
 			current_item_index = (current_item_index + 1) % level_5_items.size()
 		time_elapsed = 0.0
@@ -126,8 +173,9 @@ func spawn_item_button():
 	button.mouse_filter = Control.MOUSE_FILTER_STOP
 	button.custom_minimum_size = Vector2(50, 50)
 	
-	var position_x = int(rng.randf_range(360, 720))
-	var position_y = int(rng.randf_range(75, 450))
+	# Spawn items near the bottom of the jar (right side)
+	var position_x = int(rng.randf_range(880, 1020))
+	var position_y = int(rng.randf_range(500, 550))
 	button.position = Vector2(position_x, position_y)
 	
 	# Store item data on button
@@ -140,9 +188,12 @@ func spawn_item_button():
 	# Add to scene
 	control.add_child(button)
 	
+	# Calculate scale based on current level (increases with each level)
+	var item_scale = 0.25 + (UserData.current_level * 0.06)
+	
 	# Animate pop-up
 	var tween = create_tween()
-	tween.tween_property(button, "scale", Vector2(0.5, 0.5), 0.2)
+	tween.tween_property(button, "scale", Vector2(item_scale, item_scale), 0.2)
 
 func craft_and_spawn(item1: Dictionary, item2: Dictionary, spawn_position: Vector2):
 	var crafted_item = craft_items(item1, item2)
@@ -167,12 +218,18 @@ func craft_items(item1: Dictionary, item2: Dictionary) -> Dictionary:
 	if parent_path1 != parent_path2 or parent_path1 == "":
 		return {}
 
+	# Collect all matching items
+	var matching_items = []
 	for item in items_data:
 		var item_parts = item["path"].split("/")
 		var item_parent = "/".join(item_parts.slice(0, -1))
 		if item_parent == parent_path1:
-			return item.duplicate()
-
+			matching_items.append(item)
+	
+	# Return a random item from the matching items
+	if matching_items.size() > 0:
+		return matching_items[rng.randi() % matching_items.size()].duplicate()
+	
 	return {}
 
 func get_parent_level(path_parts: PackedStringArray) -> String:
@@ -206,14 +263,87 @@ func spawn_crafted_item(item_data: Dictionary, spawn_position: Vector2 = Vector2
 	
 	control.add_child(texture_rect)
 	
+	# Calculate scale based on current level (increases with each level)
+	var item_scale = 0.25 + (UserData.current_level * 0.06)
+	
 	var tween = create_tween()
-	tween.tween_property(texture_rect, "scale", Vector2(0.5, 0.5), 0.2)
+	tween.tween_property(texture_rect, "scale", Vector2(item_scale, item_scale), 0.2)
 
 func attack_with_item(item_data: Dictionary):
 	var damage = item_data.get("damage", 0)
-	distance_value += (10 * damage / UserData.difficulty_scaling_factor)
+	distance_value += (10 * damage / LevelManager.difficulty_scaling)
 	distance.text = str(int(distance_value)) + " m"
 	print("Attacked with ", item_data.get("name", "Item"), "! Damage: ", damage)
+
+func stack_item_in_jar(item_data: Dictionary, spawn_position: Vector2):
+	# Create physics body for item to fall into jar
+	var item_texture = load(item_data.get("texture", ""))
+	if item_texture:
+		# Create a RigidBody2D for physics simulation
+		var rigid_body = RigidBody2D.new()
+		rigid_body.gravity_scale = 2.0
+		rigid_body.linear_velocity = Vector2(0, 0)
+		rigid_body.mass = 1.0
+		rigid_body.physics_material_override = PhysicsMaterial.new()
+		rigid_body.physics_material_override.friction = 0.5
+		rigid_body.physics_material_override.bounce = 0.1
+		
+		# Store item data on the rigid body so we can access it when it enters the jar
+		rigid_body.set_meta("item_data", item_data.duplicate())
+		
+		# Add texture rect for visual
+		var texture_rect = TextureRect.new()
+		texture_rect.texture = item_texture
+		
+		# Calculate scale based on current level
+		var item_scale = 0.25 + (UserData.current_level * 0.06)
+		texture_rect.scale = Vector2(item_scale, item_scale)
+		
+		texture_rect.custom_minimum_size = Vector2(50, 50)
+		texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		texture_rect.anchor_left = 0.5
+		texture_rect.anchor_top = 0.5
+		rigid_body.add_child(texture_rect)
+		
+		# Add collision shape - smaller and more stable
+		var collision_shape = CollisionShape2D.new()
+		var box_shape = RectangleShape2D.new()
+		box_shape.size = Vector2(40, 40)
+		collision_shape.shape = box_shape
+		collision_shape.position = Vector2(0, 0)
+		rigid_body.add_child(collision_shape)
+		
+		# Set position and add to scene
+		rigid_body.global_position = spawn_position
+		rigid_body.add_to_group("falling_items")
+		add_child(rigid_body)
+		
+		# Set up a timer to check if item reached jar and clean up
+		var timer = Timer.new()
+		timer.wait_time = 3.0
+		timer.one_shot = true
+		timer.timeout.connect(func(): 
+			if is_instance_valid(rigid_body):
+				rigid_body.queue_free()
+		)
+		timer.start()
+		add_child(timer)
+
+func reset_items():
+	# Clear all items and cracks
+	for child in control.get_children():
+		if child.has_meta("item_data") or child.is_in_group("cracks"):
+			child.queue_free()
+	
+	# Reset timers
+	time_elapsed = 0.0
+	crack_spawn_timer = 0.0
+	
+	# Reset distance value
+	distance_value = int(5000 / LevelManager.difficulty_scaling)
+	distance.text = str(distance_value) + " m"
+	
+	print("Items reset for new level")
 
 func spawn_crack():
 	# Create a TextureRect for the crack
@@ -225,21 +355,9 @@ func spawn_crack():
 	crack.custom_minimum_size = Vector2(100, 100)
 	crack.mouse_filter = Control.MOUSE_FILTER_STOP
 	
-	# Position along circumference around center
-	var center_x = 540
-	var center_y = 300
-	var radius = 200  # Distance from center
-	var radius_variance = 30  # Randomness in the radius
-	
-	# Random angle around the circle (0 to 2π)
-	var angle = rng.randf() * TAU
-	
-	# Random radius with variance
-	var actual_radius = radius + rng.randf_range(-radius_variance, radius_variance)
-	
-	# Convert polar to cartesian coordinates
-	var position_x = center_x + actual_radius * cos(angle)
-	var position_y = center_y + actual_radius * sin(angle)
+	# Spawn cracks in a rectangular area at the top of the screen
+	var position_x = int(rng.randf_range(50, 1030))  # Across the width
+	var position_y = int(rng.randf_range(20, 150))   # Top part of screen
 	
 	crack.position = Vector2(position_x, position_y)
 	
