@@ -1,0 +1,25 @@
+{
+	"Level_1":{
+		"Yellow":"#F9D361",
+		"Orange":"#DF721C",
+		"Brown":"#70490A"
+	},
+	"Level_2":{
+		"Purple1":"#BE91E5",
+		"Purple2":"#E882E1",
+		"Purple3":"#9451E5"
+	},
+	"Level_3":{
+		"White":"#FFFFFF",
+		"Blue":"#A887E3",
+		"Navy Blue":"#364160"
+	},"Level_4":{
+		"White":"#FFFFFF",
+		"Light Green":"#D6C779",
+		"Dark Green":"#043E06"
+	},"Level_5":{
+		"White":"#FFFFFF",
+		"Dark Green1":"#6E7054",
+		"Dark Green2":"#444535"
+	}
+}
