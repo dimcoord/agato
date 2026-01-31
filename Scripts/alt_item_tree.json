@@ -1,0 +1,27 @@
+{
+    "level_1": {
+        "item_1": {"name": "Lemari Jati", "damage": 150, "texture": "uid://bty2ry2btayro"},
+        "level_2": {
+            "item_1": {"name": "Meja Makan", "damage": 80, "texture": "uid://bty2ry2btayro"},
+            "item_2": {"name": "Lemari Pakaian", "damage": 90, "texture": "uid://bty2ry2btayro"},
+            "level_3": {
+                "item_1": {"name": "Meja Kecil", "damage": 40, "texture": "uid://bty2ry2btayro"},
+                "item_2": {"name": "Kursi Kayu", "damage": 45, "texture": "uid://bty2ry2btayro"},
+                "item_3": {"name": "Rak Buku", "damage": 50, "texture": "uid://bty2ry2btayro"},
+                "level_4": {
+                    "item_1": {"name": "Tas Berat", "damage": 20, "texture": "uid://bty2ry2btayro"},
+                    "item_2": {"name": "Galon Air", "damage": 25, "texture": "uid://bty2ry2btayro"},
+                    "item_3": {"name": "Kotak Perkakas", "damage": 22, "texture": "uid://bty2ry2btayro"},
+                    "item_4": {"name": "Ransel Padat", "damage": 20, "texture": "uid://bty2ry2btayro"},
+                    "level_5": {
+                        "item_1": {"name": "Buku", "damage": 5, "texture": "uid://bty2ry2btayro"},
+                        "item_2": {"name": "Galon Kosong", "damage": 4, "texture": "uid://bty2ry2btayro"},
+                        "item_3": {"name": "Batu Hias", "damage": 8, "texture": "uid://bty2ry2btayro"},
+                        "item_4": {"name": "Palu", "damage": 10, "texture": "uid://bty2ry2btayro"},
+                        "item_5": {"name": "Kaleng Cat", "damage": 12, "texture": "uid://bty2ry2btayro"}
+                    }
+                }
+            }
+        }
+    }
+}
