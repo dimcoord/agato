@@ -1,92 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1u12pkyy22rt"]
+[gd_scene load_steps=8 format=3 uid="uid://cl28j0x4iq6s6"]
 
 [ext_resource type="Script" uid="uid://ca6oisrbl0pl1" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="2_ce3w2"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="3_n45e2"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_y2c35"]
-font_size = 141
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_48xlc"]
-font_size = 51
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0ys"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhxw7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trj04"]
+region_rect = Rect2(112, 16, 96, 96)
 
 [node name="MainMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_48xlc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1280.0
-offset_bottom = 720.0
-color = Color(0, 0, 0, 0.14509805)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -4.0
+offset_top = -113.0
+offset_right = 1294.0
+offset_bottom = 888.0
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -513.5
-offset_top = -332.0
-offset_right = 513.5
-offset_bottom = 31.000153
-grow_horizontal = 2
-grow_vertical = 2
-text = "Detective"
-label_settings = SubResource("LabelSettings_y2c35")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 183.0
+offset_right = 225.0
+offset_bottom = 261.0
+scale = Vector2(3.3, 3.3)
 
-[node name="Main" type="Control" parent="ColorRect"]
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 32.0
+offset_bottom = 48.0
 
-[node name="Button2" type="Button" parent="ColorRect/Main"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 441.0
-offset_top = 302.0
-offset_right = 558.0
-offset_bottom = 333.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+[node name="Button2" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 312.0
+offset_right = 557.0
+offset_bottom = 369.0
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_opfnp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yhxw7")
 text = "Start"
+alignment = 0
 
-[node name="Button3" type="Button" parent="ColorRect/Main"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 441.0
-offset_top = 419.0
-offset_right = 558.0
-offset_bottom = 450.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+[node name="Button3" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 387.0
+offset_right = 557.0
+offset_bottom = 444.0
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_opfnp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yhxw7")
 text = "Settings"
+alignment = 0
 
-[node name="Button4" type="Button" parent="ColorRect/Main"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 441.0
-offset_top = 541.0
-offset_right = 558.0
-offset_bottom = 572.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+[node name="Button4" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 466.0
+offset_right = 557.0
+offset_bottom = 523.0
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_opfnp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yhxw7")
 text = "Exit"
+alignment = 0
 
 [node name="Settings" type="Control" parent="."]
 visible = false
@@ -96,40 +93,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MasterVol" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 207.0
-offset_top = 290.0
-offset_right = 581.0
-offset_bottom = 374.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 72.0
+offset_top = 330.0
+offset_right = 280.0
+offset_bottom = 363.0
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 32
 text = "Master Volume"
-label_settings = SubResource("LabelSettings_48xlc")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Value" type="Label" parent="Settings/MasterVol"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 370.0
-offset_top = -43.0
-offset_right = 456.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-label_settings = SubResource("LabelSettings_48xlc")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Dec" type="Button" parent="Settings/MasterVol"]
 layout_mode = 1
@@ -138,14 +109,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 283.0
-offset_top = -45.0
-offset_right = 306.71796
-offset_bottom = -14.0
+offset_left = 192.00003
+offset_top = -19.500002
+offset_right = 215.71799
+offset_bottom = 11.499998
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+scale = Vector2(1.5, 1.5)
 text = "<"
+
+[node name="Value" type="Label" parent="Settings/MasterVol"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 3.0
+offset_right = 387.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 32
+text = "0"
 
 [node name="Inc" type="Button" parent="Settings/MasterVol"]
 layout_mode = 1
@@ -154,50 +135,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 478.0
-offset_top = -45.0
-offset_right = 501.71796
-offset_bottom = -14.0
+offset_left = 324.0
+offset_top = -19.5
+offset_right = 347.71796
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+scale = Vector2(1.5, 1.5)
 text = ">"
 
 [node name="MusicVol" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 207.0
-offset_top = 409.0
-offset_right = 581.0
-offset_bottom = 493.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 72.0
+offset_top = 404.0
+offset_right = 280.0
+offset_bottom = 437.0
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 32
 text = "Music Volume"
-label_settings = SubResource("LabelSettings_48xlc")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Value" type="Label" parent="Settings/MusicVol"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 370.0
-offset_top = -43.0
-offset_right = 456.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-label_settings = SubResource("LabelSettings_48xlc")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Dec" type="Button" parent="Settings/MusicVol"]
 layout_mode = 1
@@ -206,14 +161,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 283.0
-offset_top = -45.0
-offset_right = 306.71796
-offset_bottom = -14.0
+offset_left = 192.00003
+offset_top = -19.500002
+offset_right = 215.71799
+offset_bottom = 11.499998
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+scale = Vector2(1.5, 1.5)
 text = "<"
+
+[node name="Value" type="Label" parent="Settings/MusicVol"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 3.0
+offset_right = 387.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 32
+text = "0"
 
 [node name="Inc" type="Button" parent="Settings/MusicVol"]
 layout_mode = 1
@@ -222,13 +187,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 478.0
-offset_top = -45.0
-offset_right = 501.71796
-offset_bottom = -14.0
+offset_left = 324.0
+offset_top = -19.5
+offset_right = 347.71796
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+scale = Vector2(1.5, 1.5)
 text = ">"
 
 [node name="Button5" type="Button" parent="Settings"]
@@ -238,22 +203,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 441.0
-offset_top = 541.0
-offset_right = 558.0
-offset_bottom = 572.0
+offset_left = 52.0
+offset_top = 460.0
+offset_right = 132.0
+offset_bottom = 488.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3.12, 3.12)
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_trj04")
 text = "Confirm"
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 autoplay = true
 
-[connection signal="pressed" from="ColorRect/Main/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="ColorRect/Main/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="ColorRect/Main/Button4" to="." method="_on_button_4_pressed"]
+[node name="SFX_Click" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+
+[node name="Start_SFX_Click" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+
+[connection signal="pressed" from="Main/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Main/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Main/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Settings/MasterVol/Dec" to="." method="_on_dec_pressed"]
 [connection signal="pressed" from="Settings/MasterVol/Inc" to="." method="_on_inc_pressed"]
 [connection signal="pressed" from="Settings/MusicVol/Dec" to="." method="_on_dec_2_pressed"]

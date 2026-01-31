@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7x43dhlrjpam"]
 
-[ext_resource type="Script" uid="uid://csoodcfd5cg14" path="res://Scripts/pause_menu.gd" id="1_7uvq2"]
+[ext_resource type="Script" uid="uid://cqqexru0hi346" path="res://Scripts/game_over.gd" id="1_7uvq2"]
 [ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="2_si0el"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="3_cafvw"]
 

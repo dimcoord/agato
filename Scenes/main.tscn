@@ -1,12 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce05ftm7ab8tv"]
+[gd_scene load_steps=26 format=3 uid="uid://ce05ftm7ab8tv"]
 
 [ext_resource type="PackedScene" uid="uid://c60prqmdo4yhr" path="res://Scenes/Levels/level_1.tscn" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://debhgryg6hi8v" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="Texture2D" uid="uid://pbfwkrmfwurl" path="res://Assets/Sprites/gatto mc0.png" id="2_jjvhh"]
 [ext_resource type="FontFile" uid="uid://ck1ycqenajrym" path="res://Assets/Fonts/Retro Pixel/arcade/retro-pixel-arcade.otf" id="3_6bp64"]
 [ext_resource type="Texture2D" uid="uid://dkvncr2matqvn" path="res://Assets/Sprites/gatto mc1.png" id="3_kry3j"]
+[ext_resource type="Script" uid="uid://bv7dtnqgjfaqk" path="res://Scripts/attack_node.gd" id="4_b3802"]
 [ext_resource type="Script" uid="uid://clpmlsfwcd6dh" path="res://Scripts/gatto.gd" id="4_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://ct5k2t1fobaoi" path="res://Assets/Sprites/gatto facial mask0.png" id="7_k12tt"]
 [ext_resource type="PackedScene" uid="uid://b7x43dhlrjpam" path="res://Components/game_over.tscn" id="8_344ge"]
+[ext_resource type="Texture2D" uid="uid://dir52umkpcw24" path="res://Assets/Sprites/gatto facial mask1.png" id="8_h1bgf"]
+[ext_resource type="Texture2D" uid="uid://75riv1xkq00w" path="res://Assets/Sprites/side eye predator plain0.png" id="8_hptm8"]
+[ext_resource type="Texture2D" uid="uid://lsh4tty10nw6" path="res://Assets/Sprites/gatto paper mask0.png" id="9_b3802"]
+[ext_resource type="Texture2D" uid="uid://bytdlx2tdgg6" path="res://Assets/Sprites/side eye predator plain1.png" id="9_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://dbj6uddjtg6k3" path="res://Assets/Sprites/side eye predator mask0.png" id="10_6iyac"]
+[ext_resource type="Texture2D" uid="uid://hrlgaec6hwrc" path="res://Assets/Sprites/gatto paper mask1.png" id="10_fevyy"]
+[ext_resource type="Texture2D" uid="uid://rt04qe2rp0kg" path="res://Assets/Sprites/side eye predator mask1.png" id="11_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://cmfjda47qda0p" path="res://Assets/Sprites/gatto wilson jr photo mask0.png" id="11_hibaj"]
+[ext_resource type="Texture2D" uid="uid://xmfm68ju3wxv" path="res://Assets/Sprites/gatto wilson jr photo mask1.png" id="12_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://vvse8e7fpwom" path="res://Assets/Sprites/mr miauw mrs miauwmiauw0.png" id="16_b3802"]
+[ext_resource type="Texture2D" uid="uid://bmvbta7ad6e81" path="res://Assets/Sprites/mr miauw mrs miauwmiauw1.png" id="17_fevyy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_344ge"]
 font = ExtResource("3_6bp64")
@@ -24,6 +37,14 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 30
 shadow_color = Color(0, 0, 0, 0.105882354)
 
+[sub_resource type="LabelSettings" id="LabelSettings_b3802"]
+font = ExtResource("3_6bp64")
+font_size = 27
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 0.105882354)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
 animations = [{
 "frames": [{
@@ -36,10 +57,81 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 3.91,
+"texture": ExtResource("7_k12tt")
+}, {
+"duration": 1.81,
+"texture": ExtResource("8_h1bgf")
+}],
+"loop": true,
+"name": &"default_mask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.11,
+"texture": ExtResource("9_b3802")
+}, {
+"duration": 2.11,
+"texture": ExtResource("10_fevyy")
+}],
+"loop": true,
+"name": &"default_paper_mask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.71,
+"texture": ExtResource("11_hibaj")
+}, {
+"duration": 2.31,
+"texture": ExtResource("12_pdsj5")
+}],
+"loop": true,
+"name": &"default_wilson_mask",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6iyac"]
+animations = [{
+"frames": [{
+"duration": 1.91,
+"texture": ExtResource("8_hptm8")
+}, {
+"duration": 1.21,
+"texture": ExtResource("9_d1ilt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.71,
+"texture": ExtResource("10_6iyac")
+}, {
+"duration": 1.31,
+"texture": ExtResource("11_fdnlq")
+}],
+"loop": true,
+"name": &"default_masked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_b3802")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fevyy")
+}],
+"loop": true,
+"name": &"mr_miaw",
+"speed": 5.0
 }]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_21xkr")
+
+[node name="Level1" parent="." instance=ExtResource("1_8gbba")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -61,7 +153,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2611803, 0.72501063, 0, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="Control"]
+[node name="CraftingPanel" type="ColorRect" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,14 +166,6 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.34901962)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Level" type="Label" parent="Control"]
 layout_mode = 0
@@ -107,9 +192,9 @@ autowrap_mode = 1
 
 [node name="Distance" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 867.0
+offset_left = 817.0
 offset_top = 28.0
-offset_right = 1113.0
+offset_right = 1063.0
 offset_bottom = 99.0
 text = "Distance to Gatto:"
 label_settings = SubResource("LabelSettings_6bp64")
@@ -128,23 +213,54 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Level1" parent="." instance=ExtResource("1_8gbba")]
+[node name="AttackPrompt" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 552.0
+offset_right = 1073.0
+offset_bottom = 623.0
+text = "Press <SPACE> to ATTACK!!"
+label_settings = SubResource("LabelSettings_b3802")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Attack" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1086.0
+offset_top = -4.0
+offset_right = 1284.0
+offset_bottom = 204.0
+expand_mode = 1
+script = ExtResource("4_b3802")
+
+[node name="Panel" type="Panel" parent="Control/Attack"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Gatto" type="AnimatedSprite2D" parent="."]
 position = Vector2(110.99999, 531)
 scale = Vector2(3.665, 3.665)
 sprite_frames = SubResource("SpriteFrames_21xkr")
+animation = &"default_wilson_mask"
 frame = 1
-frame_progress = 0.49310598
+frame_progress = 0.46676105
 flip_h = true
 script = ExtResource("4_jjvhh")
 
 [node name="Predaturr" type="AnimatedSprite2D" parent="."]
-position = Vector2(1197, 104)
-scale = Vector2(1.8224987, 1.9525003)
-sprite_frames = SubResource("SpriteFrames_21xkr")
-frame = 1
-frame_progress = 0.1355498
+position = Vector2(1184.9999, 99.812515)
+scale = Vector2(1.9712497, 2.03625)
+sprite_frames = SubResource("SpriteFrames_6iyac")
+flip_h = true
 script = ExtResource("4_jjvhh")
 
 [node name="GameOver" parent="." instance=ExtResource("8_344ge")]

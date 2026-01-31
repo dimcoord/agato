@@ -10,6 +10,7 @@ func _ready():
 	load_settings()
 	set_difficulty(difficulty_scaling_factor)
 	set_high_score(high_score)
+	print(difficulty_scaling_factor)
 
 func save_settings():
 	var cfg := ConfigFile.new()
