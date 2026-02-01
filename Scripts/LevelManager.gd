@@ -2,6 +2,7 @@ extends Node
 
 var current_level = 1
 var difficulty_scaling = 1.0
+var is_story: bool = false
 
 # Buff system
 var selected_mask: String = ""

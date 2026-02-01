@@ -54,6 +54,8 @@ func _ready() -> void:
 	
 	load_items_data()
 
+	LevelManager.is_story = true
+
 func apply_buff_multipliers() -> void:
 	# Apply spawn rate multiplier (Paper Mask)
 	spawn_speed = spawn_speed / LevelManager.spawn_rate_multiplier
@@ -136,22 +138,28 @@ func apply_level_background() -> void:
 	# Get the level key based on LevelManager's current level
 	var level_key = "Level_" + str(LevelManager.current_level)
 	
+	print("DEBUG: Applying background for ", level_key)
+	print("DEBUG: has_node(Control/Background): ", has_node("Control/Background"))
+	
 	if level_key in level_data:
 		var level_info = level_data[level_key]
+		print("DEBUG: level_info keys: ", level_info.keys())
 		if "background" in level_info:
 			var background_uid = level_info["background"]
 			print("DEBUG: Found background UID: ", background_uid)
 			
 			# Load the background texture
 			var background_texture = load(background_uid)
+			print("DEBUG: Loaded texture: ", background_texture)
 			if background_texture:
-				# Find the Background node in Control
-				if has_node("Control/Background"):
-					var background_node = $Control/Background
+				# Apply to Level1's Control/Background TextureRect
+				if has_node("Level1/Control/Background"):
+					var background_node = get_node("Level1/Control/Background")
+					print("DEBUG: Background node type: ", background_node.get_class())
 					background_node.texture = background_texture
-					print("Applied background texture to Control/Background")
+					print("Applied background texture to Level1/Control/Background")
 				else:
-					print("ERROR: Control/Background node not found")
+					print("ERROR: Level1/Control/Background node not found")
 			else:
 				print("ERROR: Failed to load background texture: ", background_uid)
 		else:

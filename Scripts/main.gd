@@ -43,6 +43,7 @@ func _ready() -> void:
 	# Set background color from level data
 	set_background_color()
 	
+	LevelManager.is_story = false
 	# Pause the game until mask is selected
 	get_tree().paused = true
 	

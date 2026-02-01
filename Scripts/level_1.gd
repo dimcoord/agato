@@ -87,5 +87,18 @@ func advance_level():
 
 
 func _on_timer_timeout() -> void:
-	LevelManager.increment_level()
-	get_tree().reload_current_scene()
+	# Check if we're in story mode by checking the parent scene name
+	var parent_scene = get_tree().root.get_child(0).name
+	var current_level = LevelManager.current_level
+	var is_story = LevelManager.is_story
+	
+	print("Timer timeout - Current scene: ", parent_scene, " Current level: ", current_level)
+	
+	# Only go to ending scene if in story mode (MainStory) and level 5 is complete
+	if is_story and current_level == 5:
+		print("Level 5 completed in Story Mode! Going to ending scene...")
+		FadeToBlack.fade_to_scene("uid://dxnnp86n4k0l2", 2)
+	else:
+		print("Moving to next level...")
+		LevelManager.increment_level()
+		get_tree().reload_current_scene()

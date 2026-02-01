@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxnnp86n4k0l2"]
+
+[ext_resource type="Script" uid="uid://b1pu68m88sr8b" path="res://Scripts/ending.gd" id="1_6u0w7"]
+[ext_resource type="Texture2D" uid="uid://cxkgo8v2k6cmb" path="res://Assets/Sprites/Surat/4.png" id="2_6u0w7"]
+[ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="2_kg0jb"]
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_6u0w7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1285.0
+offset_bottom = 727.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.75
+offset_top = -352.78192
+offset_right = 277.75
+offset_bottom = 352.78192
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6u0w7")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 999.0
+offset_top = 319.0
+offset_right = 1238.0
+offset_bottom = 417.0
+theme_override_fonts/font = ExtResource("2_kg0jb")
+theme_override_font_sizes/font_size = 71
+text = "NEXT ->"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
