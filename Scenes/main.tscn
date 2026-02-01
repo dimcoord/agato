@@ -380,7 +380,6 @@ theme_override_fonts/font = ExtResource("5_pdsj5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hibaj")
 
 [node name="Label" type="Label" parent="Control/FloorHP"]
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

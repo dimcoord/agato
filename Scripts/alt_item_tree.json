@@ -1,27 +1,27 @@
 {
-    "level_1": {
-        "item_1": {"name": "Lemari Jati", "damage": 150, "texture": "uid://bdxekuweodxtl"},
-        "level_2": {
-            "item_1": {"name": "Meja Makan", "damage": 80, "texture": "uid://c7jf6dtt68wx4"},
-            "item_2": {"name": "Lemari Pakaian", "damage": 90, "texture": "uid://btfo41bsvbml5"},
-            "level_3": {
-                "item_1": {"name": "Meja Kecil", "damage": 40, "texture": "uid://c2xg4y1nvj2mq"},
-                "item_2": {"name": "Kursi Kayu", "damage": 45, "texture": "uid://w0rgbud30fan"},
-                "item_3": {"name": "Rak Buku", "damage": 50, "texture": "uid://b2kvfyywl28l1"},
-                "level_4": {
-                    "item_1": {"name": "Tas Berat", "damage": 20, "texture": "uid://bbwjw0fx22hfe"},
-                    "item_2": {"name": "Kayu", "damage": 25, "texture": "uid://rmgcgns05elk"},
-                    "item_3": {"name": "Kotak Perkakas", "damage": 22, "texture": "uid://bwwghibmx68ww"},
-                    "item_4": {"name": "Ransel Padat", "damage": 20, "texture": "uid://c4bbie7a00hul"},
-                    "level_5": {
-                        "item_1": {"name": "Buku", "damage": 5, "texture": "uid://d3rxlabdeklp3"},
-                        "item_2": {"name": "Galon Kosong", "damage": 4, "texture": "uid://do58re2c8h7ta"},
-                        "item_3": {"name": "Batu Hias", "damage": 8, "texture": "uid://ut7ft4agy0ea"},
-                        "item_4": {"name": "Palu", "damage": 10, "texture": "uid://d0m3cfh663w1h"},
-                        "item_5": {"name": "Kaleng Cat", "damage": 12, "texture": "uid://br6wgqb4e6cfi"}
-                    }
-                }
-            }
-        }
-    }
+	"level_1": {
+		"item_1": {"name": "Lemari Jati", "damage": 150, "texture": "uid://bdxekuweodxtl"},
+		"level_2": {
+			"item_1": {"name": "Meja Makan", "damage": 80, "texture": "uid://c7jf6dtt68wx4"},
+			"item_2": {"name": "Lemari Pakaian", "damage": 90, "texture": "uid://btfo41bsvbml5"},
+			"level_3": {
+				"item_1": {"name": "Meja Kecil", "damage": 40, "texture": "uid://c2xg4y1nvj2mq"},
+				"item_2": {"name": "Kursi Kayu", "damage": 45, "texture": "uid://w0rgbud30fan"},
+				"item_3": {"name": "Rak Buku", "damage": 50, "texture": "uid://b2kvfyywl28l1"},
+				"level_4": {
+					"item_1": {"name": "Tas Berat", "damage": 20, "texture": "uid://bbwjw0fx22hfe"},
+					"item_2": {"name": "Kayu", "damage": 25, "texture": "uid://rmgcgns05elk"},
+					"item_3": {"name": "Kotak Perkakas", "damage": 22, "texture": "uid://bwwghibmx68ww"},
+					"item_4": {"name": "Ransel Padat", "damage": 20, "texture": "uid://c4bbie7a00hul"},
+					"level_5": {
+						"item_1": {"name": "Buku", "damage": 5, "texture": "uid://d3rxlabdeklp3"},
+						"item_2": {"name": "Galon Kosong", "damage": 4, "texture": "uid://do58re2c8h7ta"},
+						"item_3": {"name": "Batu Hias", "damage": 8, "texture": "uid://ut7ft4agy0ea"},
+						"item_4": {"name": "Palu", "damage": 10, "texture": "uid://d0m3cfh663w1h"},
+						"item_5": {"name": "Kaleng Cat", "damage": 12, "texture": "uid://br6wgqb4e6cfi"}
+					}
+				}
+			}
+		}
+	}
 }
