@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://g5i1rabdwcsq"
+=======
+uid="uid://bc82yfxgnmkmm"
+>>>>>>> ae465c46da7a3b1947469f2bb6cfa95fa52c4860
 path="res://.godot/imported/799658__katzuyitsu__light-punch.wav-f5fea75443fa1e08647c49e222610093.sample"
 
 [deps]

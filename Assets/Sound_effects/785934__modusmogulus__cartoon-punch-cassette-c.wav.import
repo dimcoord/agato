@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://bffh2g27k662j"
+=======
+uid="uid://4hmx1vhgr885"
+>>>>>>> ae465c46da7a3b1947469f2bb6cfa95fa52c4860
 path="res://.godot/imported/785934__modusmogulus__cartoon-punch-cassette-c.wav-386d9265fc3cc71afead044efbbb164f.sample"
 
 [deps]

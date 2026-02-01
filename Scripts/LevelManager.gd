@@ -53,4 +53,4 @@ func set_selected_mask(mask_name: String) -> void:
 
 func increment_level():
 	current_level += 1
-	difficulty_scaling += 0.25
+	difficulty_scaling += 0.35
