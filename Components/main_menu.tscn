@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl28j0x4iq6s6"]
+[gd_scene load_steps=9 format=3 uid="uid://cl28j0x4iq6s6"]
 
 [ext_resource type="Script" uid="uid://ca6oisrbl0pl1" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="2_ce3w2"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="3_n45e2"]
+[ext_resource type="AudioStream" uid="uid://cxcyrodit85yd" path="res://Assets/Sound_effects/704610__lilmati__wicked-street-menu-click.wav" id="4_eqavh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -220,9 +221,7 @@ autoplay = true
 
 [node name="SFX_Click" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-
-[node name="Start_SFX_Click" type="AudioStreamPlayer" parent="."]
-process_mode = 3
+stream = ExtResource("4_eqavh")
 
 [connection signal="pressed" from="Main/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Main/Button3" to="." method="_on_button_3_pressed"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqrs4u8bifvkc"]
+[gd_scene load_steps=8 format=3 uid="uid://0cdnludfdtxk"]
 
-[ext_resource type="Script" uid="uid://cfju2ihwmutof" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
-[ext_resource type="AudioStream" uid="uid://dl3it4uvj78yk" path="res://Assets/Audio/SFX  menu click.mp3" id="2_k0w1u"]
+[ext_resource type="Script" uid="uid://csoodcfd5cg14" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="2_mux1j"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="3_0km3y"]
-[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="4_0km3y"]
+[ext_resource type="AudioStream" uid="uid://cxcyrodit85yd" path="res://Assets/Sound_effects/704610__lilmati__wicked-street-menu-click.wav" id="4_j0slo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2c35"]
 font_size = 141
@@ -13,7 +12,6 @@ font_size = 141
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hoqq"]
-texture = ExtResource("4_0km3y")
 region_rect = Rect2(112, 16, 96, 96)
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -242,8 +240,7 @@ text = "Confirm"
 
 [node name="SFX_Click" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("2_k0w1u")
-bus = &"SFX"
+stream = ExtResource("4_j0slo")
 
 [connection signal="pressed" from="ColorRect/Main/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="ColorRect/Main/Button3" to="." method="_on_button_3_pressed"]

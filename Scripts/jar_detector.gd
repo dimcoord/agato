@@ -17,7 +17,14 @@ func _on_body_entered(body: Node2D):
 			var item_data = body.get_meta("item_data")
 			var weight = item_data.get("damage", 0)
 			
+			# Apply weight multiplier from selected mask (Wilson Mask)
+			weight = int(weight * LevelManager.weight_per_item_multiplier)
+			
 			if parent_main.has_node("Control/FloorHP"):
 				var weight_bar = parent_main.get_node("Control/FloorHP")
 				weight_bar.value += weight
 				print("Item entered jar: ", item_data.get("name", "Item"), " with weight: ", weight, " (Total Weight: ", weight_bar.value, ")")
+			
+			# Record the item for score tracking
+			if parent_main and parent_main.has_method("record_item_placed"):
+				parent_main.record_item_placed()

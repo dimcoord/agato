@@ -21,6 +21,12 @@ var crack_spawn_interval = 3.0  # Spawn a crack every 3 seconds
 var max_cracks = 5
 var level_data = {}
 
+# Score system
+var item_count = 0  # Count of items placed/dropped
+var item_limit = 5  # Base limit for items (can be modified per level)
+var score_index = 0  # 0=A, 1=B, 2=C, 3=D, 4=E, 5=F (game over)
+var score_grades = ["A", "B", "C", "D", "E", "F"]
+
 
 func _ready() -> void:
 	# Load level data
@@ -30,10 +36,28 @@ func _ready() -> void:
 	current_level.text = str(LevelManager.current_level)
 	distance.text = str(distance_value) + " m"
 	
+	# Initialize score display
+	item_count = 0
+	update_score_display()
+	
 	# Set background color from level data
 	set_background_color()
 	
+	# Pause the game until mask is selected
+	get_tree().paused = true
+	
 	load_items_data()
+
+func apply_buff_multipliers() -> void:
+	# Apply spawn rate multiplier (Paper Mask)
+	spawn_speed = spawn_speed / LevelManager.spawn_rate_multiplier
+	
+	# Apply item limit multiplier (Normal Mask)
+	item_limit = int(item_limit * LevelManager.jar_capacity_multiplier)
+	
+	print("Applied multipliers:")
+	print("  Spawn speed: ", spawn_speed)
+	print("  Item limit: ", item_limit)
 
 func load_level_data():
 	var file = FileAccess.open(level_data_path, FileAccess.READ)
@@ -71,6 +95,36 @@ func set_background_color():
 			print("ERROR: No color keys found or ColorRect node missing")
 	else:
 		print("ERROR: Level key not found in level_data")
+
+func update_score_display():
+	if has_node("Control/Score"):
+		var score_label = get_node("Control/Score")
+		if score_index >= score_grades.size():
+			score_index = score_grades.size() - 1
+		score_label.text = "Score: " + score_grades[score_index]
+	
+	if has_node("Control/ItemCount"):
+		var item_count_label = get_node("Control/ItemCount")
+		item_count_label.text = "Items: " + str(item_count) + "/" + str(item_limit)
+
+func record_item_placed():
+	item_count += 1
+	print("Item placed. Count: ", item_count, "/", item_limit)
+	
+	# Check if item exceeds limit
+	if item_count > item_limit:
+		var excess = item_count - item_limit
+		# Decrease score by the number of excess items
+		score_index = min(excess - 1, score_grades.size() - 1)
+		print("Item limit exceeded! Score changed to: ", score_grades[score_index])
+		
+		# Check if game over (F grade)
+		if score_index >= score_grades.size() - 1:
+			print("GAME OVER - F Grade reached!")
+			if has_node("../Control/GameOver"):
+				get_node("../Control/GameOver").toggle_pause()
+	
+	update_score_display()
 
 func load_items_data():
 	items_data.clear()
@@ -120,7 +174,7 @@ func extract_items_recursive(data, path: String):
 				extract_items_recursive(value, current_path)
 
 func _process(delta):
-	var decrease_amount = base_distance_decrease_rate * delta * LevelManager.difficulty_scaling
+	var decrease_amount = base_distance_decrease_rate * delta * LevelManager.difficulty_scaling * LevelManager.chase_speed_multiplier
 	distance_value -= decrease_amount
 	distance.text = str(int(distance_value)) + " m"
 	if distance_value <= 0: $GameOver.toggle_pause()
@@ -134,8 +188,12 @@ func _process(delta):
 			if child.has_meta("item_data"):
 				current_item_count += 1
 		
-		# Spawn items until we have 10
-		if level_5_items.size() > 0 and current_item_count < 3:
+		# Calculate max items based on level
+		# Level 1: 3, Level 2: 4, Level 3+: 5
+		var max_items = min(2 + LevelManager.current_level, 5)
+		
+		# Spawn items until we reach the max
+		if level_5_items.size() > 0 and current_item_count < max_items:
 			spawn_item_button()
 			current_item_index = (current_item_index + 1) % level_5_items.size()
 		time_elapsed = 0.0
@@ -334,6 +392,11 @@ func reset_items():
 	for child in control.get_children():
 		if child.has_meta("item_data") or child.is_in_group("cracks"):
 			child.queue_free()
+	
+	# Reset score and item count for new level
+	item_count = 0
+	score_index = 0
+	update_score_display()
 	
 	# Reset timers
 	time_elapsed = 0.0
