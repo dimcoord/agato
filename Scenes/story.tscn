@@ -1,52 +1,56 @@
-[gd_scene load_steps=50 format=3 uid="uid://ce05ftm7ab8tv"]
+[gd_scene load_steps=54 format=3 uid="uid://dhhjnnss5luou"]
 
-[ext_resource type="PackedScene" uid="uid://c60prqmdo4yhr" path="res://Scenes/Levels/level_1.tscn" id="1_8gbba"]
-[ext_resource type="Script" uid="uid://debhgryg6hi8v" path="res://Scripts/main.gd" id="1_21xkr"]
-[ext_resource type="Texture2D" uid="uid://pbfwkrmfwurl" path="res://Assets/Sprites/gatto mc0.png" id="2_jjvhh"]
-[ext_resource type="FontFile" uid="uid://ck1ycqenajrym" path="res://Assets/Fonts/Retro Pixel/arcade/retro-pixel-arcade.otf" id="3_6bp64"]
-[ext_resource type="Texture2D" uid="uid://f61o7cgk3v2b" path="res://Assets/Sprites/Cracked_Floor/image (1).png" id="3_ee4r6"]
-[ext_resource type="Texture2D" uid="uid://dkvncr2matqvn" path="res://Assets/Sprites/gatto mc1.png" id="3_kry3j"]
-[ext_resource type="Script" uid="uid://bv7dtnqgjfaqk" path="res://Scripts/attack_node.gd" id="4_b3802"]
-[ext_resource type="Script" uid="uid://cwvihduorxp2h" path="res://Scripts/crack.gd" id="4_gt3je"]
-[ext_resource type="Script" uid="uid://clpmlsfwcd6dh" path="res://Scripts/gatto.gd" id="4_jjvhh"]
-[ext_resource type="Script" uid="uid://bfhooijgtbige" path="res://Scripts/jar_detector.gd" id="5_jar"]
-[ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="5_pdsj5"]
-[ext_resource type="Script" uid="uid://2j8hygtrgqdn" path="res://Scripts/mask_selection_panel.gd" id="6_maskselection"]
-[ext_resource type="Texture2D" uid="uid://ct5k2t1fobaoi" path="res://Assets/Sprites/gatto facial mask0.png" id="7_k12tt"]
-[ext_resource type="PackedScene" uid="uid://b7x43dhlrjpam" path="res://Components/game_over.tscn" id="8_344ge"]
-[ext_resource type="Texture2D" uid="uid://dir52umkpcw24" path="res://Assets/Sprites/gatto facial mask1.png" id="8_h1bgf"]
-[ext_resource type="Texture2D" uid="uid://75riv1xkq00w" path="res://Assets/Sprites/side eye predator plain0.png" id="8_hptm8"]
-[ext_resource type="Texture2D" uid="uid://lsh4tty10nw6" path="res://Assets/Sprites/gatto paper mask0.png" id="9_b3802"]
-[ext_resource type="Texture2D" uid="uid://bytdlx2tdgg6" path="res://Assets/Sprites/side eye predator plain1.png" id="9_d1ilt"]
-[ext_resource type="Texture2D" uid="uid://dbj6uddjtg6k3" path="res://Assets/Sprites/side eye predator mask0.png" id="10_6iyac"]
-[ext_resource type="Texture2D" uid="uid://hrlgaec6hwrc" path="res://Assets/Sprites/gatto paper mask1.png" id="10_fevyy"]
-[ext_resource type="Texture2D" uid="uid://rt04qe2rp0kg" path="res://Assets/Sprites/side eye predator mask1.png" id="11_fdnlq"]
-[ext_resource type="Texture2D" uid="uid://cmfjda47qda0p" path="res://Assets/Sprites/gatto wilson jr photo mask0.png" id="11_hibaj"]
-[ext_resource type="Texture2D" uid="uid://xmfm68ju3wxv" path="res://Assets/Sprites/gatto wilson jr photo mask1.png" id="12_pdsj5"]
-[ext_resource type="Texture2D" uid="uid://vvse8e7fpwom" path="res://Assets/Sprites/mr miauw mrs miauwmiauw0.png" id="16_b3802"]
-[ext_resource type="Texture2D" uid="uid://c4tp3drdnq3a0" path="res://Assets/Sprites/mr wilson sr mrs wilson mask0.png" id="16_r33sp"]
-[ext_resource type="Texture2D" uid="uid://bmvbta7ad6e81" path="res://Assets/Sprites/mr miauw mrs miauwmiauw1.png" id="17_fevyy"]
-[ext_resource type="Texture2D" uid="uid://b8c6dr8y5xesr" path="res://Assets/Sprites/mr wilson sr mrs wilson mask1.png" id="17_hdf80"]
-[ext_resource type="Texture2D" uid="uid://c4voyja1wb4i1" path="res://Assets/Sprites/sprite_0.png" id="23_kltya"]
-[ext_resource type="Texture2D" uid="uid://cyb6y1gygn8d8" path="res://Assets/Sprites/sprite_1.png" id="24_e08e2"]
-[ext_resource type="Texture2D" uid="uid://d0kuncjwxefft" path="res://Assets/Sprites/sprite_2.png" id="25_neg2b"]
-[ext_resource type="Texture2D" uid="uid://13cjw7rdhnfi" path="res://Assets/Sprites/sprite_3.png" id="26_r33sp"]
-[ext_resource type="Texture2D" uid="uid://muw17u7h86jb" path="res://Assets/Sprites/sprite_4.png" id="27_hdf80"]
-[ext_resource type="Texture2D" uid="uid://c4u5c81d40mhq" path="res://Assets/Sprites/sprite_5.png" id="28_jwpg7"]
-[ext_resource type="Texture2D" uid="uid://ceq2re0qfvkyl" path="res://Assets/Sprites/sprite_6.png" id="29_k2e45"]
-[ext_resource type="Texture2D" uid="uid://xugnbfaoffgb" path="res://Assets/Sprites/sprite_7.png" id="30_536cc"]
-[ext_resource type="Texture2D" uid="uid://gcsj0ch1ndtr" path="res://Assets/Sprites/sprite_8.png" id="31_aqgau"]
-[ext_resource type="AudioStream" uid="uid://b5se6v01d7w4j" path="res://Assets/BGM/721259__ncone__funky-beats.wav" id="37_jwpg7"]
-[ext_resource type="PackedScene" uid="uid://0cdnludfdtxk" path="res://Components/pause_menu.tscn" id="38_k2e45"]
+[ext_resource type="Script" uid="uid://cvhi7syqqx2wt" path="res://Scripts/story.gd" id="1_vtjfk"]
+[ext_resource type="PackedScene" uid="uid://c60prqmdo4yhr" path="res://Scenes/Levels/level_1.tscn" id="2_crhrd"]
+[ext_resource type="Texture2D" uid="uid://pbfwkrmfwurl" path="res://Assets/Sprites/gatto mc0.png" id="3_iqux1"]
+[ext_resource type="Texture2D" uid="uid://dkvncr2matqvn" path="res://Assets/Sprites/gatto mc1.png" id="4_ch32q"]
+[ext_resource type="Texture2D" uid="uid://ct5k2t1fobaoi" path="res://Assets/Sprites/gatto facial mask0.png" id="5_tdy5o"]
+[ext_resource type="Texture2D" uid="uid://dir52umkpcw24" path="res://Assets/Sprites/gatto facial mask1.png" id="6_lwn3j"]
+[ext_resource type="Texture2D" uid="uid://lsh4tty10nw6" path="res://Assets/Sprites/gatto paper mask0.png" id="7_bvqyf"]
+[ext_resource type="Texture2D" uid="uid://hrlgaec6hwrc" path="res://Assets/Sprites/gatto paper mask1.png" id="8_u0dvo"]
+[ext_resource type="Texture2D" uid="uid://cmfjda47qda0p" path="res://Assets/Sprites/gatto wilson jr photo mask0.png" id="9_8vnit"]
+[ext_resource type="Texture2D" uid="uid://xmfm68ju3wxv" path="res://Assets/Sprites/gatto wilson jr photo mask1.png" id="10_0n3a5"]
+[ext_resource type="Script" uid="uid://clpmlsfwcd6dh" path="res://Scripts/gatto.gd" id="11_ngi8o"]
+[ext_resource type="Texture2D" uid="uid://75riv1xkq00w" path="res://Assets/Sprites/side eye predator plain0.png" id="12_215q0"]
+[ext_resource type="Texture2D" uid="uid://bytdlx2tdgg6" path="res://Assets/Sprites/side eye predator plain1.png" id="13_436j6"]
+[ext_resource type="Texture2D" uid="uid://dbj6uddjtg6k3" path="res://Assets/Sprites/side eye predator mask0.png" id="14_j201k"]
+[ext_resource type="Texture2D" uid="uid://rt04qe2rp0kg" path="res://Assets/Sprites/side eye predator mask1.png" id="15_o4lcv"]
+[ext_resource type="Texture2D" uid="uid://vvse8e7fpwom" path="res://Assets/Sprites/mr miauw mrs miauwmiauw0.png" id="16_3gcqw"]
+[ext_resource type="Texture2D" uid="uid://buuhfmqofsao4" path="res://Assets/Sprites/freaky car ash boss0.png" id="16_tdy5o"]
+[ext_resource type="Texture2D" uid="uid://cnqx6oepg5feu" path="res://Assets/Sprites/freaky car ash boss1.png" id="17_lwn3j"]
+[ext_resource type="Texture2D" uid="uid://bmvbta7ad6e81" path="res://Assets/Sprites/mr miauw mrs miauwmiauw1.png" id="17_op7ds"]
+[ext_resource type="Texture2D" uid="uid://c4tp3drdnq3a0" path="res://Assets/Sprites/mr wilson sr mrs wilson mask0.png" id="18_3lcte"]
+[ext_resource type="Texture2D" uid="uid://b8c6dr8y5xesr" path="res://Assets/Sprites/mr wilson sr mrs wilson mask1.png" id="19_jx2cq"]
+[ext_resource type="Texture2D" uid="uid://f61o7cgk3v2b" path="res://Assets/Sprites/Cracked_Floor/image (1).png" id="20_i6t0u"]
+[ext_resource type="Script" uid="uid://cwvihduorxp2h" path="res://Scripts/crack.gd" id="21_alt1c"]
+[ext_resource type="FontFile" uid="uid://ck1ycqenajrym" path="res://Assets/Fonts/Retro Pixel/arcade/retro-pixel-arcade.otf" id="22_t5svk"]
+[ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="23_h42s7"]
+[ext_resource type="Script" uid="uid://bfhooijgtbige" path="res://Scripts/jar_detector.gd" id="25_tg7n1"]
+[ext_resource type="Texture2D" uid="uid://divshnjou8jgx" path="res://Assets/Sprites/Background/letter0.png" id="26_crhrd"]
+[ext_resource type="Texture2D" uid="uid://bocu04qyaxxdw" path="res://Assets/Sprites/Surat/1.png" id="26_vtjfk"]
+[ext_resource type="Script" uid="uid://bv7dtnqgjfaqk" path="res://Scripts/attack_node.gd" id="26_x3631"]
+[ext_resource type="Texture2D" uid="uid://c4voyja1wb4i1" path="res://Assets/Sprites/sprite_0.png" id="27_de52c"]
+[ext_resource type="Texture2D" uid="uid://cyb6y1gygn8d8" path="res://Assets/Sprites/sprite_1.png" id="28_2i24g"]
+[ext_resource type="Texture2D" uid="uid://d0kuncjwxefft" path="res://Assets/Sprites/sprite_2.png" id="29_s4hru"]
+[ext_resource type="Texture2D" uid="uid://13cjw7rdhnfi" path="res://Assets/Sprites/sprite_3.png" id="30_2ryjf"]
+[ext_resource type="Texture2D" uid="uid://muw17u7h86jb" path="res://Assets/Sprites/sprite_4.png" id="31_00hc1"]
+[ext_resource type="Texture2D" uid="uid://c4u5c81d40mhq" path="res://Assets/Sprites/sprite_5.png" id="32_uxyas"]
+[ext_resource type="Texture2D" uid="uid://ceq2re0qfvkyl" path="res://Assets/Sprites/sprite_6.png" id="33_qjglw"]
+[ext_resource type="Texture2D" uid="uid://xugnbfaoffgb" path="res://Assets/Sprites/sprite_7.png" id="34_nu551"]
+[ext_resource type="Texture2D" uid="uid://gcsj0ch1ndtr" path="res://Assets/Sprites/sprite_8.png" id="35_jfop0"]
+[ext_resource type="PackedScene" uid="uid://b7x43dhlrjpam" path="res://Components/game_over.tscn" id="36_56v4j"]
+[ext_resource type="AudioStream" uid="uid://b5se6v01d7w4j" path="res://Assets/BGM/721259__ncone__funky-beats.wav" id="38_iqux1"]
+[ext_resource type="AudioStream" uid="uid://b8p5jv2a771xk" path="res://Assets/Sound_effects/733769__slv443__click-menu.wav" id="41_lwn3j"]
+[ext_resource type="PackedScene" uid="uid://0cdnludfdtxk" path="res://Components/pause_menu.tscn" id="42_bvqyf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
 animations = [{
 "frames": [{
 "duration": 4.38,
-"texture": ExtResource("2_jjvhh")
+"texture": ExtResource("3_iqux1")
 }, {
 "duration": 2.31,
-"texture": ExtResource("3_kry3j")
+"texture": ExtResource("4_ch32q")
 }],
 "loop": true,
 "name": &"default",
@@ -54,10 +58,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 3.91,
-"texture": ExtResource("7_k12tt")
+"texture": ExtResource("5_tdy5o")
 }, {
 "duration": 1.81,
-"texture": ExtResource("8_h1bgf")
+"texture": ExtResource("6_lwn3j")
 }],
 "loop": true,
 "name": &"default_mask",
@@ -65,10 +69,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 4.11,
-"texture": ExtResource("9_b3802")
+"texture": ExtResource("7_bvqyf")
 }, {
 "duration": 2.11,
-"texture": ExtResource("10_fevyy")
+"texture": ExtResource("8_u0dvo")
 }],
 "loop": true,
 "name": &"default_paper_mask",
@@ -76,10 +80,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 3.71,
-"texture": ExtResource("11_hibaj")
+"texture": ExtResource("9_8vnit")
 }, {
 "duration": 2.31,
-"texture": ExtResource("12_pdsj5")
+"texture": ExtResource("10_0n3a5")
 }],
 "loop": true,
 "name": &"default_wilson_mask",
@@ -90,10 +94,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.91,
-"texture": ExtResource("8_hptm8")
+"texture": ExtResource("12_215q0")
 }, {
 "duration": 1.21,
-"texture": ExtResource("9_d1ilt")
+"texture": ExtResource("13_436j6")
 }],
 "loop": true,
 "name": &"default",
@@ -101,21 +105,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.71,
-"texture": ExtResource("10_6iyac")
+"texture": ExtResource("14_j201k")
 }, {
 "duration": 1.31,
-"texture": ExtResource("11_fdnlq")
+"texture": ExtResource("15_o4lcv")
 }],
 "loop": true,
 "name": &"default_masked",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.31,
+"texture": ExtResource("16_tdy5o")
+}, {
+"duration": 1.51,
+"texture": ExtResource("17_lwn3j")
+}],
+"loop": true,
+"name": &"freaky",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_b3802")
+"texture": ExtResource("16_3gcqw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_fevyy")
+"texture": ExtResource("17_op7ds")
 }],
 "loop": true,
 "name": &"mr_miaw",
@@ -123,10 +138,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_r33sp")
+"texture": ExtResource("18_3lcte")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_hdf80")
+"texture": ExtResource("19_jx2cq")
 }],
 "loop": true,
 "name": &"mr_miaw_masked",
@@ -134,7 +149,7 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_344ge"]
-font = ExtResource("3_6bp64")
+font = ExtResource("22_t5svk")
 font_size = 30
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
@@ -142,7 +157,7 @@ shadow_size = 30
 shadow_color = Color(0, 0, 0, 0.105882354)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6bp64"]
-font = ExtResource("3_6bp64")
+font = ExtResource("22_t5svk")
 font_size = 22
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
@@ -153,7 +168,7 @@ shadow_color = Color(0, 0, 0, 0.105882354)
 bg_color = Color(1, 0.21176471, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hibaj"]
-font = ExtResource("3_6bp64")
+font = ExtResource("22_t5svk")
 font_size = 30
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
@@ -161,7 +176,7 @@ shadow_size = 30
 shadow_color = Color(0, 0, 0, 0.105882354)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b3802"]
-font = ExtResource("3_6bp64")
+font = ExtResource("22_t5svk")
 font_size = 27
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
@@ -181,57 +196,55 @@ size = Vector2(700, 174)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("23_kltya")
+"texture": ExtResource("27_de52c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_e08e2")
+"texture": ExtResource("28_2i24g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_neg2b")
+"texture": ExtResource("29_s4hru")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_r33sp")
+"texture": ExtResource("30_2ryjf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_hdf80")
+"texture": ExtResource("31_00hc1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_jwpg7")
+"texture": ExtResource("32_uxyas")
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_k2e45")
+"texture": ExtResource("33_qjglw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_536cc")
+"texture": ExtResource("34_nu551")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_aqgau")
+"texture": ExtResource("35_jfop0")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_21xkr")
+[node name="MainStory" type="Node2D"]
+script = ExtResource("1_vtjfk")
 
-[node name="Level1" parent="." instance=ExtResource("1_8gbba")]
+[node name="Level1" parent="." instance=ExtResource("2_crhrd")]
 
 [node name="Gatto" type="AnimatedSprite2D" parent="."]
 position = Vector2(110.99999, 531)
 scale = Vector2(3.665, 3.665)
 sprite_frames = SubResource("SpriteFrames_21xkr")
-animation = &"default_wilson_mask"
 flip_h = true
-script = ExtResource("4_jjvhh")
+script = ExtResource("11_ngi8o")
 
 [node name="Predaturr" type="AnimatedSprite2D" parent="."]
 position = Vector2(1181.9999, 99)
 scale = Vector2(1.9712497, 2.03625)
 sprite_frames = SubResource("SpriteFrames_6iyac")
-animation = &"mr_miaw_masked"
 flip_h = true
-script = ExtResource("4_jjvhh")
+script = ExtResource("11_ngi8o")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -262,8 +275,8 @@ offset_left = 356.0
 offset_top = 335.0
 offset_right = 466.0
 offset_bottom = 414.0
-texture = ExtResource("3_ee4r6")
-script = ExtResource("4_gt3je")
+texture = ExtResource("20_i6t0u")
+script = ExtResource("21_alt1c")
 
 [node name="CraftingPanel" type="ColorRect" parent="Control"]
 visible = false
@@ -347,7 +360,7 @@ offset_top = -27.0
 offset_right = 603.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("5_pdsj5")
+theme_override_fonts/font = ExtResource("23_h42s7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hibaj")
 
 [node name="Label" type="Label" parent="Control/FloorHP"]
@@ -403,70 +416,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="MaskSelectionPanel" type="ColorRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.7)
-script = ExtResource("6_maskselection")
-
-[node name="PanelContent" type="Control" parent="Control/MaskSelectionPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -300.0
-offset_right = 500.0
-offset_bottom = 300.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="Label" parent="Control/MaskSelectionPanel/PanelContent"]
-layout_mode = 0
-offset_top = 10.0
-offset_right = 1000.0
-offset_bottom = 60.0
-text = "SELECT GATTO'S MASK"
-label_settings = SubResource("LabelSettings_344ge")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
-
-[node name="MaskButtonsContainer" type="VBoxContainer" parent="Control/MaskSelectionPanel/PanelContent"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 80.0
-offset_right = 950.0
-offset_bottom = 480.0
-alignment = 1
-
-[node name="MaskDescription" type="Label" parent="Control/MaskSelectionPanel/PanelContent"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 500.0
-offset_right = 950.0
-offset_bottom = 550.0
-text = "Select a mask to proceed"
-label_settings = SubResource("LabelSettings_6bp64")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="ConfirmButton" type="Button" parent="Control/MaskSelectionPanel/PanelContent"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 560.0
-offset_right = 600.0
-offset_bottom = 600.0
-disabled = true
-text = "CONFIRM"
-
 [node name="Jar" type="StaticBody2D" parent="Control"]
 position = Vector2(950, 250)
 
@@ -492,7 +441,7 @@ shape = SubResource("RectangleShape2D_kltya")
 
 [node name="JarDetector" type="Area2D" parent="Control/Jar"]
 position = Vector2(-288.5, 200)
-script = ExtResource("5_jar")
+script = ExtResource("25_tg7n1")
 
 [node name="DetectorCollisionShape" type="CollisionShape2D" parent="Control/Jar/JarDetector"]
 position = Vector2(24.5, 126)
@@ -506,7 +455,30 @@ offset_top = -4.0
 offset_right = 1284.0
 offset_bottom = 204.0
 expand_mode = 1
-script = ExtResource("4_b3802")
+script = ExtResource("26_x3631")
+
+[node name="SuratTrigger" type="TextureButton" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 126.0
+offset_right = 196.0
+offset_bottom = 377.76807
+texture_normal = ExtResource("26_crhrd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Surat" type="TextureButton" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 387.0
+offset_top = 14.0
+offset_right = 886.0
+offset_bottom = 719.79913
+texture_normal = ExtResource("26_vtjfk")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Transition" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -519,13 +491,18 @@ speed_scale = 2.0
 [node name="Timer" type="Timer" parent="Transition"]
 wait_time = 0.5
 
-[node name="GameOver" parent="." instance=ExtResource("8_344ge")]
+[node name="GameOver" parent="." instance=ExtResource("36_56v4j")]
 visible = false
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("37_jwpg7")
+stream = ExtResource("38_iqux1")
 autoplay = true
 
-[node name="PauseMenu" parent="." instance=ExtResource("38_k2e45")]
+[node name="SFX_Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("41_lwn3j")
 
+[node name="PauseMenu" parent="." instance=ExtResource("42_bvqyf")]
+
+[connection signal="pressed" from="Control/SuratTrigger" to="." method="_on_surat_trigger_pressed"]
+[connection signal="pressed" from="Control/Surat" to="." method="_on_surat_pressed"]
 [connection signal="timeout" from="Transition/Timer" to="Level1" method="_on_timer_timeout"]

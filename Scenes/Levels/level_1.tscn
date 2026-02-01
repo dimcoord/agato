@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c60prqmdo4yhr"]
+[gd_scene load_steps=4 format=3 uid="uid://c60prqmdo4yhr"]
 
 [ext_resource type="Script" uid="uid://b5e64d5t62r25" path="res://Scripts/level_1.gd" id="1_4dpyx"]
+[ext_resource type="Texture2D" uid="uid://c0jdfnxki65kd" path="res://Assets/Sprites/Background/level room0.png" id="2_3mqfk"]
 [ext_resource type="Texture2D" uid="uid://d4huy0d3p2qwh" path="res://Assets/Sprites/Level Floor/sprite_0.png" id="2_4dpyx"]
 
 [node name="Level1" type="Node2D"]
@@ -21,14 +22,26 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2611803, 0.72501063, 0, 1)
 
+[node name="Background" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3mqfk")
+
 [node name="TextureRect" type="TextureRect" parent="Control"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 279.0
-offset_bottom = 279.0
+offset_left = 311.0
+offset_top = 452.0
+offset_right = -225.43164
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4dpyx")

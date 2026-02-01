@@ -1,5 +1,6 @@
 extends AnimatedSprite2D
 
 func _ready() -> void:
-	# Play the default animation - mask selection panel will change this
-	play("default")
+	# Don't auto-play - let apply_level_mask() set the animation
+	# The animation will be set by story.gd's apply_level_mask() function
+	pass

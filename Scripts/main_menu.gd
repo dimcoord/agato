@@ -10,14 +10,19 @@ func _ready() -> void:
 	$Settings/MusicVol/Value.text = str(int(UserSettings.music_volume * 10))
 
 func _on_button_2_pressed() -> void:
-	$Start_SFX_Click.play()
+	$SFX_Click.play()
 	AudioFade.fade_out($BGM, 4)
-	#FadeToBlack_Transition.fade_to_scene("uid://bnbxspvlgp2tj", 4)
+	FadeToBlack.fade_to_scene("uid://dhhjnnss5luou", 2)
 
 func _on_button_3_pressed() -> void:
 	$SFX_Click.play()
-	$Settings.visible = true
-	$Main.visible = false
+	AudioFade.fade_out($BGM, 4)
+	FadeToBlack.fade_to_scene("uid://ce05ftm7ab8tv", 2)
+
+#func _on_button_3_pressed() -> void:
+	#$SFX_Click.play()
+	#$Settings.visible = true
+	#$Main.visible = false
 
 func _on_button_4_pressed() -> void:
 	get_tree().quit()

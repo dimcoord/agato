@@ -27,7 +27,7 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_4_pressed() -> void:
 	$SFX_Click.play()
-	#FadeToBlack_Transition.fade_to_scene("uid://cxteef3x40qsy", 4)
+	FadeToBlack.fade_to_scene("uid://cl28j0x4iq6s6", 2)
 
 
 func _on_button_3_pressed() -> void:
