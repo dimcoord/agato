@@ -4,4 +4,4 @@
 .git/
 /android/
 /Exports/
-*.import
+.import
